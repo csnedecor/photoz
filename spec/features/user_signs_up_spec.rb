@@ -7,8 +7,8 @@ feature "Create a new album" do
   #
   # Acceptance Criteria:
   #
-  # * [ ] There is a link to 'Sign Up' on the homepage
-  # * [ ] If I fill in my email, password, and password confirmation correctly,
+  # * [X] There is a link to 'Sign Up' on the homepage
+  # * [X] If I fill in my email, password, and password confirmation correctly,
   #   I'm greeted with a message that my account has been created
   # * [ ] If the password and password confirmation fields do not match, I'm given
   #   an error message
@@ -26,5 +26,17 @@ feature "Create a new album" do
     click_on "Sign up"
 
     expect(page).to have_content "Welcome! You have signed up successfully."
+  end
+
+  scenario "passwords do not match when" do
+    visit root_path
+    click_on "Sign Up"
+
+    fill_in "Email", with: "test@example.com"
+    fill_in "Password", with: "password"
+    fill_in "Password confirmation", with: "notmypassword"
+    click_on "Sign up"
+
+    expect(page).to have_content "Password confirmation doesn't match Password"
   end
 end
