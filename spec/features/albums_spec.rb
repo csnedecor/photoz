@@ -13,4 +13,11 @@ feature "Albums" do
     expect(page).to have_content album2.name
   end
 
+  it "cannot create a new album when not logged in" do
+    visit '/'
+    click_on "New Album"
+
+    expect(page).to have_content "You must be signed in to do that."
+  end
+
 end
