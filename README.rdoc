@@ -24,5 +24,168 @@ Things you may want to cover:
 * ...
 
 
+
+
+
+USER STORIES
+
+        Create a new album:
+
+        As a user,
+        I want to create an album of photos
+        So that I can show it off to my friends
+
+        Acceptance Criteria:
+
+        * [ ] I must enter a name, description and at least one photo
+        * [ ] If all fields are complete, I'm told that my album has been saved.
+        * [ ] If a field is incomplete, I am given an error message and brought back to
+          the create page
+        * [ ] If an album has the same name as one that is in the database, I get an error
+          message
+        * [ ] I can upload many photos to the album
+        * [ ] The photo album is associated with my username
+
+
+        View a list of albums:
+
+        As a visitor to the Photoz website,
+        I want to view a list of albums
+        So I can see what cool photos people have posted
+
+        Acceptance Criteria:
+
+        * [ ] If I navigate to the home page, I should see a list of all albums with the
+          username, a cover photo, the album title and a truncated description (150 or less).
+
+
+        User sign Up:
+
+        As a user,
+        I want to be able to sign up
+        So I can take advantage of all the features Photoz offers
+
+        Acceptance Criteria:
+
+        * [ ] There is a link to "Sign Up" in the header
+        * [ ] If I fill in my username, email, password, and password confirmation correctly,
+          I am greeted with a confirmation message that my account has been created
+        * [ ] If the password and password confirmation fields do not match, I am given
+          an error message
+        * [ ] If my email already exists in the database, I am given a message that tells
+          me I am already registered
+        * [ ] If my email is not formatted correctly, I am given an error message
+        * [ ] If my username already exists in the database, I am given a message that tells
+          me to pick another one or sign in
+
+
+User sign in:
+
+As a user
+I want to sign in
+So I can edit my albums and my profile
+
+Acceptance Criteria:
+
+* [ ] There is a link to 'Sign in' in the header
+* [ ] If I fill in my email and password correctly, I am greeted and redirected
+  to my profile
+* [ ] If I input my password incorrectly, I am given an error message
+* [ ] If I am signed in, I should see a link to 'Sign Up'
+
+
+User Sign out:
+
+As a user
+I want to sign out
+So other people who use my computer can't sabotage my albums
+
+* [ ] There is a link to 'Sign out' in the header when I am signed in
+* [ ] If I am successfully signed out, I receive a success message
+
+
+View User profile:
+
+As a visitor
+I want to be able to see user profiles
+So I can look at the albums that user has created
+
+Acceptance Criteria:
+
+* [ ] If I click on an album's creator username, I can see a list of the
+  albums they have created, their avatar, username and email address.
+* [ ] If I click on an album, it takes me to the album's detail page
+
+
+Edit user profile:
+
+As a user
+I want to edit my profile
+So I can present a current picture of who I am to site visitors
+
+Acceptance Criteria:
+
+* [ ] If I am signed in, there is a dropdown from my username with a link to my
+  profile
+* [ ] When I visit my user profile, I can upload an avatar for my profile
+* [ ] If I do not upload an avatar for my profile, I recieve a Photoz logo in its
+  place
+* [ ] I can only edit a user profile if I am signed in, and that profile is my own
+
+
+Edit album:
+
+As a user
+I want to edit my albums
+So that I can keep them updated with current photos and information
+
+Acceptance Criteria:
+
+* [ ] If I am signed in, I can click on an album that I created and there will
+  be a link to edit that album
+* [ ] If I click on anyone else's album, there is no link to edit the album
+* [ ] I can change the album name, description, and delete or add photos
+* [ ] If I do not have an album name and at least one photo, I am given
+  an error message
+* [ ] If I input valid data, I recieve a success message and am redirected to my
+  album's detail page
+* [ ] I can delete the whole album and all its photos
+
+
+Crop Photos:
+
+As a user
+I want to crop my photos
+So that I can present the best version of them possible
+
+Acceptance Criteria:
+
+* [ ] If I am signed in, there is a link next to each photo in my Edit Album page
+  that takes me to an edit photo page
+* [ ] I can crop each photo according to whatever dimensions I want
+* [ ] If the cropped photo is saved, I receive a success message and am redirected
+  to the Edit Album page
+* [ ] If the cropped photo is not saved, I receive an error message
+
+
+View Album
+
+As a visitor
+I want to see album details
+So I can see all the awesome photos people have uploaded
+
+Acceptance Criteria:
+
+* [ ] If I click on an album, I can see who created the album, the full album
+  description, the album name, and a list of the photos in the album
+* [ ] If I click on a photo, I can view the photo up close and navigate through
+  the album with "Next" and "back" buttons
+
+
+
+
+
+
+
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
