@@ -26,6 +26,8 @@ feature "Create a new album" do
     click_on "Sign up"
 
     expect(page).to have_content "Welcome! You have signed up successfully."
+    expect(page).not_to have_content "Sign Up"
+    expect(page).to have_content "Sign Out"
   end
 
   scenario "passwords do not match when" do
@@ -54,7 +56,7 @@ feature "Create a new album" do
     fill_in "Password confirmation", with: existing_user.password
     click_on "Sign up"
 
-    expect(page).to have_content("Email has already been taken")
+    expect(page).to have_content "Email has already been taken"
   end
 
   scenario "email is improperly formatted" do
@@ -66,6 +68,6 @@ feature "Create a new album" do
     fill_in "Password confirmation", with: "notmypassword"
     click_on "Sign up"
 
-    expect(page).to have_content("Email is invalid")
+    expect(page).to have_content "Email is invalid"
   end
 end
