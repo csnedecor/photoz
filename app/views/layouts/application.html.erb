@@ -65,13 +65,18 @@
                   </li>
                   <% if !user_signed_in? %>
                     <li class="divider"></li>
-                    <li><%= link_to "Sign In", new_user_session_path %></a></li>
+                    <li>
+                      <%= link_to "Sign In", new_user_session_path %>
+                    </li>
                     <li class="divider"></li>
-                      <%= link_to "Sign Up", new_user_registration_path %></a>
+                    <li>
+                        <%= link_to "Sign Up", new_user_registration_path %>
                     </li>
                   <% else %>
                     <li class="divider"></li>
-                    <li><%= link_to "Sign Out", destroy_user_session_path %></a></li>
+                    <li>
+                      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+                    </li>
                   <% end %>
                 </ul>
               </section>
