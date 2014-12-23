@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-feature "Albums" do
+feature "View albums" do
 
   scenario "view a list of albums on home page" do
-    
+
     # As a visitor to the Photoz website,
     # I want to view a list of albums
     # So I can see what cool photos people have posted
