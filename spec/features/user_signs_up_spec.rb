@@ -19,6 +19,7 @@ feature "User signs up" do
   # * [X] If my email is not formatted correctly, I am given an error message
   # * [X] If my username already exists in the database, I am given a message that tells
   #   me to pick another one or sign in
+  # * [X] If I am signed in, I should see a link to 'Sign Out'
   # * [ ] I can sign up using GitHub
 
   scenario "gives the user a happy message when user signs up with good information" do
