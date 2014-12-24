@@ -13,20 +13,16 @@ feature 'User signs in' do
   # to my profile
   # * [X] If I input my password incorrectly, I am given an error message
   # * [X] If my email or password doesn't match an existing user, I get an error message
-  # * [ ] I can sign in using GitHub
+  # * [--] I can sign in using GitHub
 
   scenario 'User enters all information correctly' do
-    existing_user = User.create(
-    username: "TweedleDee",
-    email: "test@example.com",
-    password: "password"
-    )
+    existing_user = FactoryGirl.create(:user)
 
     visit root_path
     click_on "Sign In"
 
-    fill_in "Email", with: "test@example.com"
-    fill_in "Password", with: "password"
+    fill_in "Email", with: existing_user.email
+    fill_in "Password", with: existing_user.password
     click_on "Sign in"
 
     expect(page).to have_content "Signed in successfully"

@@ -13,10 +13,10 @@ feature "View albums" do
     # * [ ] If I navigate to the home page, I should see a list of all albums with the
     # username, a cover photo, the album title and a truncated description (150 or less).
 
-    album1 = FactoryGirl.create(:album, description: "Our whole family went on this awesome trip.")
+    album1 = FactoryGirl.create(:album)
     album2 = FactoryGirl.create(:album)
 
-    visit '/'
+    visit root_path
 
     expect(page).to have_content album1.name
     expect(page).to have_content album1.description

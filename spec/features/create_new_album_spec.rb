@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Create a new album' do
-  
+
   # As a user,
   # I want to create an album of photos
   # So that I can show it off to my friends
@@ -9,19 +9,52 @@ feature 'Create a new album' do
   # Acceptance Criteria:
   #
   # * [X] I can only create an album if I am signed in
-  # * [ ] I must enter a name, description and at least one photo
-  # * [ ] If all fields are complete, I am told that my album has been saved.
+  # * [X] I must enter a name and description
+  # * [X] If all fields are complete, I am told that my album has been saved and
+  #   I am redirected to the new album's page.
   # * [ ] If a field is incomplete, I am given an error message and brought back to
   # the create page
   # * [ ] If an album has the same name as one that is in the database, I get an error
   # message
   # * [ ] I can upload many photos to the album
-  # * [ ] The photo album is associated with my username
+  # * [X] The photo album is associated with my username
 
-  scenario"user tries to create new album when not signed in" do
-    visit '/'
-    click_on "New Album"
+  context "User is not signed in" do
+    scenario "user tries to create new album" do
+      visit root_path
+      click_on "New Album"
 
-    expect(page).to have_content "You must be signed in to do that."
+      expect(page).to have_content "You must be signed in to do that."
+    end
+  end
+
+  context "User is signed in" do
+
+    before(:each) do
+      @existing_user = FactoryGirl.create(:user)
+
+      visit root_path
+      click_on "Sign In"
+
+      fill_in "Email", with: @existing_user.email
+      fill_in "Password", with: @existing_user.password
+      click_on "Sign in"
+    end
+
+    scenario "user enters all required information correctly" do
+      visit root_path
+      click_on "New Album"
+
+      fill_in "Album Name", with: "Vacation Pics"
+      fill_in "Description", with: "These are pictures of my family on vacation!"
+      click_on "Create Album"
+
+      expect(page).to have_content "You've created a new album!"
+      expect(page).to have_content "Vacation Pics"
+      expect(page).to have_content "These are pictures of my family on vacation!"
+      within('#user') do
+        expect(page).to have_content @existing_user.username
+      end
+    end
   end
 end

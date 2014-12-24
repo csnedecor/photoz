@@ -1,0 +1,13 @@
+<%= form_for @album, url: albums_path do |f| %>
+  <div>
+    <%= f.label :name, "Album Name" %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <%= f.submit "Create Album" %>
+  </div>
+<% end %>

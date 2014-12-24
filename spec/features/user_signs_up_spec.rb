@@ -20,7 +20,7 @@ feature "User signs up" do
   # * [X] If my username already exists in the database, I am given a message that tells
   #   me to pick another one or sign in
   # * [X] If I am signed in, I should see a link to 'Sign Out'
-  # * [ ] I can sign up using GitHub
+  # * [--] I can sign up using GitHub
 
   scenario "gives the user a happy message when user signs up with good information" do
     visit root_path
@@ -36,7 +36,7 @@ feature "User signs up" do
     expect(page).to have_content "Sign Out"
   end
 
-  scenario "passwords do not match when" do
+  scenario "passwords do not match" do
     visit root_path
     click_on "Sign Up"
 
@@ -50,11 +50,7 @@ feature "User signs up" do
   end
 
   scenario "email and username are already taken" do
-    existing_user = User.create(
-    username: "TweedleDee",
-    email: "test@example.com",
-    password: "password"
-    )
+    existing_user = FactoryGirl.create(:user)
 
     visit root_path
     click_on "Sign Up"
