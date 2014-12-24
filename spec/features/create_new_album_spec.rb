@@ -12,8 +12,8 @@ feature 'Create a new album' do
   # * [X] I must enter a name and description
   # * [X] If all fields are complete, I am told that my album has been saved and
   #   I am redirected to the new album's page.
-  # * [ ] If a field is incomplete, I am given an error message and brought back to
-  # the create page
+  # * [X] If a required field is incomplete, I am given an error message and stay
+  #   on the create page
   # * [ ] If an album has the same name as one that is in the database, I get an error
   # message
   # * [ ] I can upload many photos to the album
@@ -55,6 +55,17 @@ feature 'Create a new album' do
       within('#user') do
         expect(page).to have_content @existing_user.username
       end
+    end
+
+    scenario "user does not enter all required information" do
+      visit root_path
+      click_on "New Album"
+
+      click_on "Create Album"
+
+      expect(page).to have_content "Name can't be blank"
+      expect(page).to have_content "Description can't be blank"
+      expect(page).to have_content "Create a new album"
     end
   end
 end
