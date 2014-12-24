@@ -14,7 +14,7 @@ feature 'Create a new album' do
   #   I am redirected to the new album's page.
   # * [X] If a required field is incomplete, I am given an error message and stay
   #   on the create page
-  # * [ ] If an album has the same name as one that is in the database, I get an error
+  # * [X] If an album has the same name as one that is in the database, I get an error
   # message
   # * [ ] I can upload many photos to the album
   # * [X] The photo album is associated with my username
