@@ -67,5 +67,19 @@ feature 'Create a new album' do
       expect(page).to have_content "Description can't be blank"
       expect(page).to have_content "Create a new album"
     end
+
+    scenario "User enters an album name that is already in use" do
+      existing_album = Album.create(name: "The first album", description: "This is my first album", user_id: 1)
+      visit root_path
+      click_on "New Album"
+
+      fill_in "Album Name", with: "The first album"
+      fill_in "Description", with: "This is my first album"
+
+      click_on "Create Album"
+
+      expect(page).to have_content "Name has already been taken"
+      expect(page).to have_content "Create a new album"
+    end
   end
 end
