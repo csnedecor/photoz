@@ -16,7 +16,8 @@ feature 'Create a new album' do
   #   on the create page
   # * [X] If an album has the same name as one that is in the database, I get an error
   # message
-  # * [ ] I can upload many photos to the album
+  # * [ ] I can upload many photos
+  # * [ ] I can not upload files that are not png or jpg
   # * [X] The photo album is associated with my username
 
   context "User is not signed in" do
@@ -47,11 +48,13 @@ feature 'Create a new album' do
 
       fill_in "Album Name", with: "Vacation Pics"
       fill_in "Description", with: "These are pictures of my family on vacation!"
+      attach_file('album_photo', Rails.root + 'spec/fixtures/Airturbine.jpg')
       click_on "Create Album"
 
       expect(page).to have_content "You've created a new album!"
       expect(page).to have_content "Vacation Pics"
       expect(page).to have_content "These are pictures of my family on vacation!"
+      expect(find('img')['src']).to have_content "Airturbine.jpg"
       within('#user') do
         expect(page).to have_content @existing_user.username
       end
@@ -80,6 +83,19 @@ feature 'Create a new album' do
 
       expect(page).to have_content "Name has already been taken"
       expect(page).to have_content "Create a new album"
+    end
+
+    scenario "User enters a file that is not an image" do
+      visit root_path
+      click_on "New Album"
+
+      fill_in "Album Name", with: "Vacation Pics"
+      fill_in "Description", with: "These are pictures of my family on vacation!"
+      attach_file('album_photo', Rails.root + 'spec/fixtures/Amnesia-cover.mp3')
+      click_on "Create Album"
+
+      expect(page).to have_content "Photo content type is invalid"
+      expect(page).to have_content "Photo is invalid"
     end
   end
 end
