@@ -7,6 +7,7 @@ class AlbumsController < ApplicationController
   def new
     authenticate_user!
     @album = Album.new
+    5.times { @album.photos.build }
   end
 
   def create
@@ -27,6 +28,6 @@ class AlbumsController < ApplicationController
 
   private
     def album_params
-      params.require(:album).permit(:name, :description, :photo)
+      params.require(:album).permit(:name, :description, :photo, :photos_attributes => [:id, :photo, :destroy])
     end
 end

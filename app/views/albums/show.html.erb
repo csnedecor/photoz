@@ -5,6 +5,9 @@
 <div id = "user">
   <%= @album.user.username %>
 </div>
-<div id= "photo">
-  <%= image_tag @album.photo.url %>
-</div>
+
+<% n = 0 %>
+<% @album.photos.each do |photo| %>
+  <div id= "photo<%= n %>"><%= image_tag(photo.photo.url) %></div>
+  <% n += 1 %>
+<% end %>

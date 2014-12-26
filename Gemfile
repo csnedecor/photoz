@@ -32,7 +32,6 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem "paperclip", "~> 4.2"
 
-
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'

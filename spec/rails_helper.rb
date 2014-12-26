@@ -54,7 +54,7 @@ RSpec.configure do |config|
   RSpec.configure do |config|
     config.after(:each) do
       if Rails.env.test?
-        FileUtils.rm_rf(Dir["#{Rails.root}/public/system/albums/photos/000/000/*"])
+        FileUtils.rm_rf(Dir["#{Rails.root}/public/system/photos/photos/000/000/*"])
       end
     end
   end

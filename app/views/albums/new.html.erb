@@ -20,8 +20,23 @@
     <%= f.text_area :description %>
   </div>
   <div>
-    <%= f.file_field :photo %>
+    <%= f.fields_for :photos do |photo| %>
+      <% if photo.object.new_record? %>
+        <p>
+          <%= photo.file_field :photo %>
+        </p>
+      <% end %>
+    <% end %>
   </div>
+  <%= f.fields_for :photos do |photo| %>
+    <% unless photo.object.new_record? %>
+      <p>
+        <%= link_to image_tag(photo.object.photo.url(:thumb)),
+          photo.object.photo.url(:original) %>
+        <%= photo.check_box :_destroy %>
+      </p>
+    <% end %>
+  <% end %>
   <div>
     <%= f.submit "Create Album" %>
   </div>
