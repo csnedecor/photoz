@@ -1,0 +1,64 @@
+.top-bar{
+  background: #212124;
+}
+.top-bar-section li:not(.has-form) a:not(.button){
+  background: #212124;
+}
+.top-bar-section li:not(.has-form) a:not(.button):hover{
+  background: #128fdc;
+}
+.top-bar .name h1 a:hover{
+  opacity:.7
+}
+.large-8{
+  width:100%;
+}
+.panel{
+  border: none;
+  background: rgba(0,0,0,0.3);
+  position: relative;
+  bottom:65px;
+  padding: 0.5rem;
+  height:66px;
+}
+.panel h6{
+  color: #fff;
+  font-size: .6rem;
+}
+.panel h5{
+  font-size: .8rem;
+}
+.photo-title{
+  color: #fff;
+  font-weight: bold;
+}
+.photo-title:hover{
+  color: #fff;
+  background: #0063dc;
+}
+.username{
+  color: #fff;
+}
+.username:hover{
+  color: #fff;
+  background: #0063dc;
+}
+.columns{
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  margin-top: 1.3rem;
+  margin-bottom:-5rem;
+}
+.row{
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media (min-width: 64.063em){
+  .large-4{
+    width:33%;
+  }
+}

@@ -10,8 +10,8 @@ feature "View albums" do
     #
     # Acceptance Criteria:
     #
-    # * [ ] If I navigate to the home page, I should see a list of all albums with the
-    # username, a cover photo, the album title and a truncated description (150 or less).
+    # * [X] If I navigate to the home page, I should see a list of all albums with the
+    # username, a cover photo, and the album's title.
 
     photo1 = FactoryGirl.create(:photo)
     photo2 = FactoryGirl.create(:photo)
@@ -19,7 +19,7 @@ feature "View albums" do
     visit root_path
 
     expect(page).to have_content photo1.album.name
-    expect(page).to have_content photo1.album.description
+    expect(page).to have_content photo1.album.user.username
     expect(page).to have_content photo2.album.name
   end
 
