@@ -8,6 +8,6 @@
 
 <% n = 0 %>
 <% @album.photos.each do |photo| %>
-  <div id= "photo<%= n %>"><%= image_tag(photo.photo.url) %></div>
+  <%= link_to(image_tag(photo.photo.url), album_photo_path(@album, photo), id: "photo#{n}") %>
   <% n += 1 %>
 <% end %>

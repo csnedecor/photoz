@@ -30,18 +30,13 @@
 
         </div>
 
-
-
-
-
-
         <div class="large-8 columns">
           <div class="row">
             <% @albums.each do |album| %>
               <div class="large-4 small-6 columns">
-                <img src="http://placehold.it/1000x1000&text=Thumbnail">
+                <%= link_to(image_tag(album.photos[0].photo.url), album_path(album)) %>
                 <div class="panel">
-                  <h5><%= album.name %></h5>
+                  <h5><%= link_to album.name, album_path(album) %></h5>
                   <h6 class="subheader"><%= album.description %></h6>
                 </div>
               </div>

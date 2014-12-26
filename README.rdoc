@@ -168,18 +168,18 @@ Acceptance Criteria:
 * [ ] If the cropped photo is not saved, I receive an error message
 
 
-View Album
+        View Album
 
-As a visitor
-I want to see album details
-So I can see all the awesome photos people have uploaded
+        As a visitor
+        I want to see album details
+        So I can see all the awesome photos people have uploaded
 
-Acceptance Criteria:
+        Acceptance Criteria:
 
-* [ ] If I click on an album, I can see who created the album, the full album
-  description, the album name, and a list of the photos in the album
-* [ ] If I click on a photo, I can view the photo up close and navigate through
-  the album with "Next" and "back" buttons
+        * [ ] If I click on an album, I can see who created the album, the full album
+          description, the album name, and a list of the photos in the album
+        * [ ] If I click on a photo, I can view the photo up close and navigate through
+          the album with "Next" and "back" buttons
 
 
 

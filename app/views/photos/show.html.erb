@@ -1,0 +1,10 @@
+
+<% if !@album.photos.includes(:photo).where(id: (@photo.id - 1)).empty? %>
+  <%= link_to "Back", album_photo_path(@album, (@photo.id - 1)) %>
+<% end %>
+<%= image_tag(@photo.photo.url) %>
+<% if !@album.photos.includes(:photo).where(id: (@photo.id + 1)).empty? %>
+  <%= link_to "Next", album_photo_path(@album, @photo.id + 1) %>
+<% end %>
+
+<%= link_to @album.name, album_path(@album) %>
