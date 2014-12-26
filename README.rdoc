@@ -94,14 +94,14 @@ USER STORIES
         * [ ] If I am signed in, I should see a link to 'Sign Up'
 
 
-User Sign out:
+        User Sign out:
 
-As a user
-I want to sign out
-So other people who use my computer can't sabotage my albums
+        As a user
+        I want to sign out
+        So other people who use my computer can't sabotage my albums
 
-* [ ] There is a link to 'Sign out' in the header when I am signed in
-* [ ] If I am successfully signed out, I receive a success message
+        * [ ] There is a link to 'Sign out' in the header when I am signed in
+        * [ ] If I am successfully signed out, I receive a success message
 
 
 View User profile:
