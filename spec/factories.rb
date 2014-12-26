@@ -7,7 +7,7 @@ FactoryGirl.define do
   end
 
   factory :photo do
-    ActionDispatch::Http::UploadedFile.new(:tempfile => File.new("#{Rails.root}/spec/fixtures/Airturbine.jpg"), :filename => "Airturbine.jpg")
+    photo Rack::Test::UploadedFile.new("#{Rails.root}/spec/fixtures/Airturbine.jpg", "image/jpg")
     album
   end
 end

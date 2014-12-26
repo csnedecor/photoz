@@ -26,5 +26,6 @@ feature 'view album page' do
     visit album_path(photo1.album)
     click_on('photo0')
 
+    expect(find('img')['src']).to have_content "Airturbine.jpg"
   end
 end
