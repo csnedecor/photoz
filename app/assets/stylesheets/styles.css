@@ -6,6 +6,24 @@ a:hover{
   background-color: #0063dc;
   color: #fff;
 }
+.notice{
+  background: #57dfa0;
+  color: #212124;
+  padding:5px;
+  text-align: center;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(168, 168, 168, .75);
+  box-shadow: 0px 3px 5px 0px rgba(168, 168, 168, .75);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(168, 168, 168, .75);
+}
+.alert{
+  background: #ff1818;
+  color: white;
+  padding:5px;
+  text-align: center;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(168, 168, 168, .75);
+  box-shadow: 0px 3px 5px 0px rgba(168, 168, 168, .75);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(168, 168, 168, .75);
+}
 
 /* Navigation bar */
 .top-bar{
