@@ -10,7 +10,7 @@
 
     <% @albums.each do |album| %>
       <div class="large-4 small-6 columns home">
-        <%= link_to(image_tag(album.photos[0].photo.url), album_path(album)) %>
+        <%= link_to(image_tag(album.photos[0].photo.url, class: "index"), album_path(album)) %>
         <div class="panel home">
           <h5>
             <%= link_to(album.name, album_path(album), class: "photo-title") %>
