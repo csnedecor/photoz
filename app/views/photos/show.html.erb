@@ -1,10 +1,15 @@
+<div class="black-background">
+  <div class="row">
+    <%= image_tag(@photo.photo.url, class: "only-photo") %>
+  </div>
+</div>
 
-<% if !@album.photos.includes(:photo).where(id: (@photo.id - 1)).empty? %>
-  <%= link_to "Back", album_photo_path(@album, (@photo.id - 1)) %>
-<% end %>
-<%= image_tag(@photo.photo.url) %>
-<% if !@album.photos.includes(:photo).where(id: (@photo.id + 1)).empty? %>
-  <%= link_to "Next", album_photo_path(@album, @photo.id + 1) %>
-<% end %>
-
-<%= link_to @album.name, album_path(@album) %>
+<div class="text-center panel photo">
+  <h1><%= link_to @album.name, album_path(@album) %></h1>
+  <p>
+    <%= @album.description %>
+  </p>
+  <div id = "user">
+    <%= @album.user.username %>
+  </div>
+</div>

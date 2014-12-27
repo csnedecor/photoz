@@ -6,12 +6,12 @@
 </head>
 <body>
 
-  <div class="row">
+  <div class="row home">
 
     <% @albums.each do |album| %>
-      <div class="large-4 small-6 columns">
+      <div class="large-4 small-6 columns home">
         <%= link_to(image_tag(album.photos[0].photo.url), album_path(album)) %>
-        <div class="panel">
+        <div class="panel home">
           <h5>
             <%= link_to(album.name, album_path(album), class: "photo-title") %>
           </h5>

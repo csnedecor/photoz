@@ -1,13 +1,41 @@
-<h1><%= @album.name %></h1>
-<p>
-  <%= @album.description %>
-</p>
-<div id = "user">
-  <%= @album.user.username %>
+<div class="black-background">
+  <div class="row">
+    <div id="slider" class="flexslider">
+      <ul class="slides">
+        <% n = 0 %>
+        <% @album.photos.each do |photo| %>
+        <li>
+          <div class="center-helper">
+            <%= link_to(image_tag(photo.photo.url), album_photo_path(@album, photo), id: "photo#{n}") %>
+            <% n += 1 %>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div id="carousel" class="flexslider">
+      <ul class="slides">
+        <% n = 1 %>
+        <% @album.photos.each do |photo| %>
+        <li>
+          <%= link_to(image_tag(photo.photo.url), "#") %>
+          <% n += 1 %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<% n = 0 %>
-<% @album.photos.each do |photo| %>
-  <%= link_to(image_tag(photo.photo.url), album_photo_path(@album, photo), id: "photo#{n}") %>
-  <% n += 1 %>
-<% end %>
+
+<div class="text-center panel photo">
+  <h1><%= @album.name %></h1>
+  <p>
+    <%= @album.description %>
+  </p>
+  <div id = "user">
+    <%= @album.user.username %>
+  </div>
+</div>

@@ -24,7 +24,7 @@ feature 'view album page' do
     photo1 = FactoryGirl.create(:photo)
     photo2 = FactoryGirl.create(:photo)
     visit album_path(photo1.album)
-    click_on('photo0')
+    click_on("photo0")
 
     expect(find('img')['src']).to have_content "Airturbine.jpg"
   end

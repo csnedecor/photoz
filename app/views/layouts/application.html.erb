@@ -13,49 +13,51 @@
 
   <body>
 
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
+    <div class="sticky">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
 
-        <li class="name">
-          <h1>
-            <a href="/">
-              Photoz
-            </a>
-          </h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-      </ul>
-
-      <section class="top-bar-section">
-
-        <ul class="right">
-          <li class="divider"></li>
-          <li>
-            <%= link_to "New Album", new_album_path %>
+          <li class="name">
+            <h1>
+              <a href="/">
+                Photoz
+              </a>
+            </h1>
           </li>
-          <% if !user_signed_in? %>
-            <li class="divider"></li>
-            <li>
-              <%= link_to "Sign In", new_user_session_path %>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <%= link_to "Sign Up", new_user_registration_path %>
-            </li>
-          <% else %>
-            <li class="divider"></li>
-            <li>
-              <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <%= link_to current_user.username, "#" %>
-            </li>
-          <% end %>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
         </ul>
 
-      </section>
-    </nav>
+        <section class="top-bar-section">
+
+          <ul class="right">
+            <li class="divider"></li>
+            <li>
+              <%= link_to "New Album", new_album_path %>
+            </li>
+            <% if !user_signed_in? %>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Sign In", new_user_session_path %>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Sign Up", new_user_registration_path %>
+              </li>
+            <% else %>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to current_user.username, "#" %>
+              </li>
+            <% end %>
+          </ul>
+
+        </section>
+      </nav>
+    </div>
 
       <div class="notice"><%= notice %></div>
       <div class="alert"><%= alert %></div>
