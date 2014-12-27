@@ -129,6 +129,12 @@ a:hover{
   box-shadow: none;
   margin:0;
 }
+a.flex-next:hover{
+  background:none;
+}
+a.flex-prev:hover{
+  background:none;
+}
 .flex-direction-nav a::before{
   color: whitesmoke;
 }
