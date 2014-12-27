@@ -31,6 +31,7 @@ gem 'therubyracer'
 gem 'omniauth'
 gem 'omniauth-github'
 gem "paperclip", "~> 4.2"
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -39,6 +40,7 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'dotenv-rails'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
