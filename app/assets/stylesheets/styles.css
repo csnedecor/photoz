@@ -92,6 +92,7 @@ a:hover{
   display: flex;
 }
 img.index{
+  min-width:100%;
   box-shadow: 3px 3px 5px 0px rgba(168, 168, 168, .75);
   -webkit-box-shadow: 3px 3px 5px 0px rgba(168, 168, 168, .75);
   -moz-box-shadow: 3px 3px 5px 0px rgba(168, 168, 168, .75);

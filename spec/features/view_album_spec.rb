@@ -14,6 +14,7 @@ feature 'view album page' do
 
   scenario 'visitor goes to album detail page' do
     photo = FactoryGirl.create(:photo)
+
     visit root_path
     click_on photo.album.name
 
@@ -22,7 +23,6 @@ feature 'view album page' do
 
   scenario 'visitor navigates through photos in album' do
     photo1 = FactoryGirl.create(:photo)
-    photo2 = FactoryGirl.create(:photo)
     visit album_path(photo1.album)
     click_on("photo0")
 

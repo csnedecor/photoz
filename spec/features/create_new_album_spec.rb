@@ -19,6 +19,7 @@ feature 'Create a new album' do
   # * [X] I can upload many photos
   # * [X] I can not upload files that are not png or jpg
   # * [X] The photo album is associated with my username
+  # * [ ] I must include at least one photo
 
   context "User is not signed in" do
     scenario "user tries to create new album" do
@@ -75,10 +76,12 @@ feature 'Create a new album' do
       expect(page).to have_content "Name can't be blank"
       expect(page).to have_content "Description can't be blank"
       expect(page).to have_content "Create a new album"
+      expect(page).to have_content "You must attach at least one photo"
     end
 
     scenario "User enters an album name that is already in use" do
       photo = FactoryGirl.create(:photo)
+
       visit root_path
       click_on "New Album"
 

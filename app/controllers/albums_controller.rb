@@ -18,6 +18,7 @@ class AlbumsController < ApplicationController
       flash[:notice] = "You've created a new album!"
       redirect_to album_path(@album)
     else
+      5.times { @album.photos.build }
       render "new"
     end
   end
