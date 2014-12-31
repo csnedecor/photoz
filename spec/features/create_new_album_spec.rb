@@ -56,10 +56,10 @@ feature 'Create a new album' do
       expect(page).to have_content "You've created a new album!"
       expect(page).to have_content "Vacation Pics"
       expect(page).to have_content "These are pictures of my family on vacation!"
-      within('#photo1') do
+      within('#photo0') do
         expect(find('img')['src']).to have_content "Airturbine.jpg"
       end
-      within('#photo0') do
+      within('#photo1') do
         expect(find('img')['src']).to have_content "ice-boats.jpg"
       end
       within('#user') do
@@ -80,12 +80,12 @@ feature 'Create a new album' do
     end
 
     scenario "User enters an album name that is already in use" do
-      photo = FactoryGirl.create(:photo)
+      album = FactoryGirl.create(:album)
 
       visit root_path
       click_on "New Album"
 
-      fill_in "Album Name", with: photo.album.name
+      fill_in "Album Name", with: album.name
       fill_in "Description", with: "This is my first album"
 
       click_on "Create Album"

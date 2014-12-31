@@ -13,14 +13,13 @@ feature "View albums" do
     # * [X] If I navigate to the home page, I should see a list of all albums with the
     # username, a cover photo, and the album's title.
 
-    photo1 = FactoryGirl.create(:photo)
-    photo2 = FactoryGirl.create(:photo)
+    album = FactoryGirl.create(:album)
 
     visit root_path
 
-    expect(page).to have_content photo1.album.name
-    expect(page).to have_content photo1.album.user.username
-    expect(page).to have_content photo2.album.name
+    expect(page).to have_content album.name
+    expect(page).to have_content album.user.username
+    expect(page).to have_content album.name
   end
 
 end
