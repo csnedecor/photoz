@@ -38,6 +38,10 @@ gem 'omniauth-github'
 gem "paperclip", "~> 4.2"
 gem 'aws-sdk'
 
+group :test do
+  gem 'coveralls', require: false
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
