@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "callbacks" }
   resources :users, only: [:show]
-  resources :albums, only: [:index, :new, :create, :show] do
+  resources :albums, only: [:index, :new, :create, :show, :edit, :update] do
     resources :photos, only: [:show]
   end
   root 'albums#index'

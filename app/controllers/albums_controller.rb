@@ -27,8 +27,24 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
   end
 
+  def edit
+    @album = Album.find(params[:id])
+    5.times { @album.photos.build }
+  end
+
+  def update
+    album = Album.find(params[:id])
+    album.update(album_params)
+    if album.save
+      flash[:notice] = "Successfully updated album!"
+      redirect_to album_path(album)
+    else
+      render "edit"
+    end
+  end
+
   private
     def album_params
-      params.require(:album).permit(:name, :description, :photo, :photos_attributes => [:id, :photo, :destroy])
+      params.require(:album).permit(:name, :description, :photo, :photos_attributes => [:id, :photo, :_destroy])
     end
 end

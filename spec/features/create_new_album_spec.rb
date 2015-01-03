@@ -19,7 +19,7 @@ feature 'Create a new album' do
   # * [X] I can upload many photos
   # * [X] I can not upload files that are not png or jpg
   # * [X] The photo album is associated with my username
-  # * [ ] I must include at least one photo
+  # * [X] I must include at least one photo
 
   context "User is not signed in" do
     scenario "user tries to create new album" do
@@ -51,7 +51,7 @@ feature 'Create a new album' do
       fill_in "Description", with: "These are pictures of my family on vacation!"
       attach_file('album_photos_attributes_0_photo', Rails.root + 'spec/fixtures/Airturbine.jpg')
       attach_file('album_photos_attributes_1_photo', Rails.root + 'spec/fixtures/ice-boats.jpg')
-      click_on "Create Album"
+      click_on "Save Album"
 
       expect(page).to have_content "You've created a new album!"
       expect(page).to have_content "Vacation Pics"
@@ -71,7 +71,7 @@ feature 'Create a new album' do
       visit root_path
       click_on "New Album"
 
-      click_on "Create Album"
+      click_on "Save Album"
 
       expect(page).to have_content "Name can't be blank"
       expect(page).to have_content "Description can't be blank"
@@ -88,7 +88,7 @@ feature 'Create a new album' do
       fill_in "Album Name", with: album.name
       fill_in "Description", with: "This is my first album"
 
-      click_on "Create Album"
+      click_on "Save Album"
 
       expect(page).to have_content "Name has already been taken"
       expect(page).to have_content "Create a new album"
@@ -101,7 +101,7 @@ feature 'Create a new album' do
       fill_in "Album Name", with: "Vacation Pics"
       fill_in "Description", with: "These are pictures of my family on vacation!"
       attach_file('album_photos_attributes_0_photo', Rails.root + 'spec/fixtures/Amnesia-cover.mp3')
-      click_on "Create Album"
+      click_on "Save Album"
       expect(page).to have_content "must be an image (only png, gif or jpg files)"
     end
   end

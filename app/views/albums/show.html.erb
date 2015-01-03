@@ -32,6 +32,7 @@
 
 <div class="text-center panel photo">
   <h1><%= @album.name %></h1>
+  <%= link_to "Edit album", edit_album_path %>
   <p>
     <%= @album.description %>
   </p>

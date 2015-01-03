@@ -4,44 +4,53 @@
 
     <ul>
       <% if @album.errors.any? %>
-        <% @album.errors.full_messages.each do |msg| %>
-          <li>
-            <%= msg %>
-          </li>
-        <% end %>
+      <% @album.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %>
+      </li>
+      <% end %>
       <% end %>
     </ul>
 
-    <%= form_for @album, url: albums_path, html: { multipart: true } do |f| %>
+    <%= form_for @album, url: album_path, html: { multipart: true } do |f| %>
+
       <div class="small-12 columns">
         <%= f.label :name, "Album Name" %>
         <%= f.text_field :name, input_html: {value: @album.name} %>
       </div>
+
       <div class="small-12 columns">
         <%= f.label :description %>
         <%= f.text_area :description, input_html: {value: @album.description} %>
       </div>
+
       <div class="small-12 columns">
         <%= f.fields_for :photos do |photo| %>
           <% if photo.object.new_record? %>
-            <p>
-              <%= photo.file_field :photo %>
-            </p>
+          <p>
+            <%= photo.file_field :photo %>
+          </p>
+          <% elsif !photo.object.photo? %>
+            <%= photo.file_field :photo %>
           <% end %>
         <% end %>
       </div>
+
       <%= f.fields_for :photos do |photo| %>
         <% unless photo.object.new_record? %>
-          <p>
-            <%= link_to image_tag(photo.object.photo.url(:thumb)),
-              photo.object.photo.url(:original) %>
-            <%= photo.check_box :_destroy %>
-          </p>
+        <p>
+          <%= link_to image_tag(photo.object.photo.url(:thumb)),
+          photo.object.photo.url(:original) %>
+          <%= photo.label :remove %>
+          <%= photo.check_box :_destroy %>
+        </p>
         <% end %>
       <% end %>
+
       <div class="center">
         <%= f.submit "Save Album" %>
       </div>
+
     <% end %>
   </div>
 </div>
