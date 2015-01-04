@@ -34,11 +34,12 @@ class AlbumsController < ApplicationController
 
   def update
     album = Album.find(params[:id])
-    album.update(album_params)
-    if album.save
+
+    if album.update(album_params)
       flash[:notice] = "Successfully updated album!"
       redirect_to album_path(album)
     else
+      @album = album
       render "edit"
     end
   end
