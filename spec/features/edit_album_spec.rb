@@ -18,7 +18,7 @@ feature "Edit album" do
   #    and am given a success message
   # [X] If I submit without at least one photo, a name and a description, I get
   #    an error message.
-  # [] If the name has already been taken, I get an error message
+  # [X] If the name has already been taken, I get an error message
   # [X] The edit page has the photos, name and description of the album
   #    already filled in.
 
