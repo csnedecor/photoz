@@ -16,7 +16,7 @@ feature "Edit album" do
   # [X] I can edit the name and description of my album
   # [X] If I enter valid information, I am taken to that album
   #    and am given a success message
-  # [] If I submit without at least one photo, a name and a description, I get
+  # [X] If I submit without at least one photo, a name and a description, I get
   #    an error message.
   # [] If the name has already been taken, I get an error message
   # [X] The edit page has the photos, name and description of the album
@@ -80,6 +80,17 @@ feature "Edit album" do
       expect(page).to have_content "Name can't be blank"
       expect(page).to have_content "Description can't be blank"
       expect(page).to have_content "You must attach at least one photo"
+    end
+
+    scenario "User enters a name that has already been taken" do
+      @other_existing_album = FactoryGirl.create(:album, user: @existing_user)
+      visit edit_album_path(@existing_album)
+
+      fill_in "Name", with: @other_existing_album.name
+
+      click_on "Save Album"
+
+      expect(page).to have_content "Name has already been taken"
     end
   end
 end
