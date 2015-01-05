@@ -6,11 +6,12 @@ feature "Edit album" do
   # So I can keep them up to date
   #
   # Acceptance Criteria:
-  # [] If I am logged in, I can see the option to edit my album when I am
+  # [X] If I'm not logged in, I can't see the option to edit my album when I am
   #    on my album's page
   # [] If I am logged in, I can see the option to edit each of my albums
   #    when I view the list of my albums in my user profile
-  # [] I can only edit my own albums
+  # [X] I can only edit my album when I am logged in.
+  # [X] I can only edit my own albums
   # [X] I can add photos to my album
   # [X] I can remove photos from my album
   # [X] I can edit the name and description of my album
@@ -83,14 +84,40 @@ feature "Edit album" do
     end
 
     scenario "User enters a name that has already been taken" do
-      @other_existing_album = FactoryGirl.create(:album, user: @existing_user)
+      other_existing_album = FactoryGirl.create(:album, user: @existing_user)
       visit edit_album_path(@existing_album)
 
-      fill_in "Name", with: @other_existing_album.name
+      fill_in "Name", with: other_existing_album.name
 
       click_on "Save Album"
 
       expect(page).to have_content "Name has already been taken"
+    end
+
+    scenario "User tries to edit another user's album" do
+      other_album = FactoryGirl.create(:album)
+
+      visit album_path(other_album)
+
+      expect(page).not_to have_content "Edit album"
+
+      visit edit_album_path(other_album)
+
+      expect(page).to have_content "You can't edit someone else's album"
+    end
+  end
+
+  context "Visitor is not signed in" do
+    scenario "Visitor tries to edit an album" do
+      album = FactoryGirl.create(:album)
+
+      visit album_path(album)
+
+      expect(page).not_to have_content "Edit album"
+
+      visit edit_album_path(album)
+
+      expect(page).to have_content "You must be signed in to do that"
     end
   end
 end

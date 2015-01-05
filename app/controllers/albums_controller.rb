@@ -30,6 +30,13 @@ class AlbumsController < ApplicationController
 
   def edit
     @album = Album.find(params[:id])
+    if !signed_in?
+      flash[:alert] = "You must be signed in to do that"
+      redirect_to album_path(@album)
+    elsif @album.user != current_user
+      flash[:alert] = "You can't edit someone else's album"
+      redirect_to album_path(@album)
+    end
     5.times { @album.photos.build }
   end
 
