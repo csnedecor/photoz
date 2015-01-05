@@ -6,18 +6,22 @@ feature "Edit album" do
   # So I can keep them up to date
   #
   # Acceptance Criteria:
-  # [] If I am logged in, I can see the option to edit my album when I am
+  # [X] If I'm not logged in, I can't see the option to edit my album when I am
   #    on my album's page
   # [] If I am logged in, I can see the option to edit each of my albums
   #    when I view the list of my albums in my user profile
-  # [] I can only edit my own albums
+  # [X] I can only edit my album when I am logged in.
+  # [X] I can only edit my own albums
   # [X] I can add photos to my album
   # [X] I can remove photos from my album
   # [X] I can edit the name and description of my album
   # [X] If I enter valid information, I am taken to that album
   #    and am given a success message
-  # [] If I enter invalid information, I am given error messages and the
-  #    album doesn't save
+  # [X] If I submit without at least one photo, a name and a description, I get
+  #    an error message.
+  # [X] If the name has already been taken, I get an error message
+  # [X] The edit page has the photos, name and description of the album
+  #    already filled in.
 
   context "User is logged in and has created an album" do
     before(:each) do
@@ -31,11 +35,10 @@ feature "Edit album" do
       fill_in "Password", with: @existing_user.password
       click_on "Sign in"
 
-      visit album_path(@existing_album)
     end
 
     scenario "User inputs valid information" do
-
+      visit album_path(@existing_album)
       click_on "Edit album"
 
       fill_in "Name", with: "New name"
@@ -58,8 +61,63 @@ feature "Edit album" do
     end
 
     scenario "User visits edit page" do
-      expect(page).to have_content @existing_album.name
+      visit edit_album_path(@existing_album)
+
+      expect(page).to have_selector("input[value='#{@existing_album.name}']")
       expect(page).to have_content @existing_album.description
+      expect(first("img")["src"]).to have_content "ice-boats.jpg"
+    end
+
+    scenario "User enters blank fields" do
+      visit edit_album_path(@existing_album)
+
+      fill_in "Name", with: ""
+      fill_in "Description", with: ""
+      check "album[photos_attributes][7][_destroy]"
+      check "album[photos_attributes][8][_destroy]"
+
+      click_on "Save Album"
+
+      expect(page).to have_content "Name can't be blank"
+      expect(page).to have_content "Description can't be blank"
+      expect(page).to have_content "You must attach at least one photo"
+    end
+
+    scenario "User enters a name that has already been taken" do
+      other_existing_album = FactoryGirl.create(:album, user: @existing_user)
+      visit edit_album_path(@existing_album)
+
+      fill_in "Name", with: other_existing_album.name
+
+      click_on "Save Album"
+
+      expect(page).to have_content "Name has already been taken"
+    end
+
+    scenario "User tries to edit another user's album" do
+      other_album = FactoryGirl.create(:album)
+
+      visit album_path(other_album)
+
+      expect(page).not_to have_content "Edit album"
+
+      visit edit_album_path(other_album)
+
+      expect(page).to have_content "You can't edit someone else's album"
+    end
+  end
+
+  context "Visitor is not signed in" do
+    scenario "Visitor tries to edit an album" do
+      album = FactoryGirl.create(:album)
+
+      visit album_path(album)
+
+      expect(page).not_to have_content "Edit album"
+
+      visit edit_album_path(album)
+
+      expect(page).to have_content "You must be signed in to do that"
     end
   end
 end

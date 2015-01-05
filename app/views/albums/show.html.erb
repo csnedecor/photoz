@@ -32,7 +32,9 @@
 
 <div class="text-center panel photo">
   <h1><%= @album.name %></h1>
-  <%= link_to "Edit album", edit_album_path %>
+  <% if @album.user == current_user %>
+    <%= link_to "Edit album", edit_album_path %>
+  <% end %>
   <p>
     <%= @album.description %>
   </p>
