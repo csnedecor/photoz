@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
-    @photos = @album.photos.order(:photo_updated_at)
+    @photos = @album.photos.order(photo_updated_at: :desc)
   end
 
   def edit
