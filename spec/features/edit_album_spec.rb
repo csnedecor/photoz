@@ -50,10 +50,10 @@ feature "Edit album" do
       expect(page).to have_content "New name"
       expect(page).to have_content "New description"
       within('#photo0') do
-        expect(find('img')['src']).not_to have_content "Airturbine.jpg"
+        expect(find("img")["src"]).to have_content "agriculture.jpg"
       end
-      within('#photo0') do
-        expect(find('img')['src']).to have_content "agriculture.jpg"
+      within('#photo1') do
+        expect(find("img")["src"]).not_to have_content "ice-boats.jpg"
       end
       expect(@existing_album.photos.count).to eq(2)
       expect(page).to have_content "Successfully updated album!"

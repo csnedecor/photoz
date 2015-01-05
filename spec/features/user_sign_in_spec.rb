@@ -4,7 +4,7 @@ feature 'User signs in' do
 
   # As a user
   # I want to sign in
-  # So I can edit my albums and my profile
+  # So I can take full advantage of photoz's features
   #
   # Acceptance Criteria:
   #
@@ -13,7 +13,7 @@ feature 'User signs in' do
   # to my profile
   # * [X] If I input my password incorrectly, I am given an error message
   # * [X] If my email or password doesn't match an existing user, I get an error message
-  # * [--] I can sign in using GitHub
+  # * [X] I can sign in using GitHub
 
   scenario 'User enters all information correctly' do
     existing_user = FactoryGirl.create(:user)
