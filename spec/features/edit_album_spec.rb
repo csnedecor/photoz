@@ -65,7 +65,7 @@ feature "Edit album" do
 
       expect(page).to have_selector("input[value='#{@existing_album.name}']")
       expect(page).to have_content @existing_album.description
-      expect(first('img')['src']).to have_content "ice-boats.jpg"
+      expect(first("img")["src"]).to have_content "ice-boats.jpg"
     end
 
     scenario "User enters blank fields" do
@@ -73,8 +73,8 @@ feature "Edit album" do
 
       fill_in "Name", with: ""
       fill_in "Description", with: ""
-      check 'album[photos_attributes][7][_destroy]'
-      check 'album[photos_attributes][8][_destroy]'
+      check "album[photos_attributes][7][_destroy]"
+      check "album[photos_attributes][8][_destroy]"
 
       click_on "Save Album"
 
