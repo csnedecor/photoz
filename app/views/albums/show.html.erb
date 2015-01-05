@@ -18,7 +18,7 @@
     <div id="carousel" class="flexslider">
       <ul class="slides">
         <% n = 1 %>
-        <% @album.photos.each do |photo| %>
+        <% @photos.each do |photo| %>
         <li>
           <%= link_to(image_tag(photo.photo.url), "#") %>
           <% n += 1 %>
