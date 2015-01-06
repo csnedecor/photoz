@@ -34,6 +34,7 @@
   <h1><%= @album.name %></h1>
   <% if @album.user == current_user %>
     <%= link_to "Edit album", edit_album_path %>
+    <%= link_to "Delete Album", album_path(@album), method: :delete %>
   <% end %>
   <p>
     <%= @album.description %>
