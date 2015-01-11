@@ -57,10 +57,10 @@ feature 'Create a new album' do
       expect(page).to have_content "Vacation Pics"
       expect(page).to have_content "These are pictures of my family on vacation!"
       within('#photo0') do
-        expect(find('img')['src']).to have_content "ice-boats.jpg"
+        expect(find('img')['src']).to have_content "Airturbine.jpg"
       end
       within('#photo1') do
-        expect(find('img')['src']).to have_content "Airturbine.jpg"
+        expect(find('img')['src']).to have_content "ice-boats.jpg"
       end
       within('#user') do
         expect(page).to have_content @existing_user.username

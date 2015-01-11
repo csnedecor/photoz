@@ -51,10 +51,10 @@ feature "Edit album" do
       expect(page).to have_content "New name"
       expect(page).to have_content "New description"
       within('#photo0') do
-        expect(find("img")["src"]).to have_content "agriculture.jpg"
+        expect(find("img")["src"]).not_to have_content "Airturbine.jpg"
       end
       within('#photo1') do
-        expect(find("img")["src"]).not_to have_content "ice-boats.jpg"
+        expect(find("img")["src"]).to have_content "agriculture.jpg"
       end
       expect(@existing_album.photos.count).to eq(2)
       expect(page).to have_content "Successfully updated album!"
@@ -65,7 +65,7 @@ feature "Edit album" do
 
       expect(page).to have_selector("input[value='#{@existing_album.name}']")
       expect(page).to have_content @existing_album.description
-      expect(first("img")["src"]).to have_content "ice-boats.jpg"
+      expect(first("img")["src"]).to have_content "Airturbine.jpg"
     end
 
     scenario "User enters blank fields" do

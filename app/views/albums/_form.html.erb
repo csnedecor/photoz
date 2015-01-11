@@ -36,7 +36,7 @@
         <% end %>
       </div>
 
-      <%= f.fields_for :photos do |photo| %>
+      <%= f.fields_for :photos, @album.photos.order(id: :asc) do |photo| %>
         <% unless photo.object.new_record? %>
         <p>
           <%= link_to image_tag(photo.object.photo.url(:thumb)),
