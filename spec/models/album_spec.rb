@@ -6,7 +6,9 @@ describe Album do
   it { should have_valid(:name).when("a", "Album Name", "32") }
   it { should_not have_valid(:name).when(*blanks) }
 
-  it { should have_valid(:description).when("a", "Writing all the things", "32") }
+  it {
+    should have_valid(:description).when("a", "Writing all the things", "32")
+  }
   it { should_not have_valid(:name).when(*blanks) }
 
   it "must have at least one photo" do
@@ -17,8 +19,6 @@ describe Album do
 
   it "deletes its photos when it is destroyed" do
     album = create(:album)
-    expect{
-      album.destroy
-    }.to change(Photo, :count).by(-2)
+    expect{album.destroy}.to change(Photo, :count).by(-2)
   end
 end
