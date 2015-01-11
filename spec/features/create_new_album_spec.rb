@@ -49,8 +49,14 @@ feature "Create a new album" do
 
       fill_in "Album Name", with: "Vacation Pics"
       fill_in "Description", with: "These are pictures of my family on vacation!"
-      attach_file("album_photos_attributes_0_photo", Rails.root + "spec/fixtures/Airturbine.jpg")
-      attach_file("album_photos_attributes_1_photo", Rails.root + "spec/fixtures/ice-boats.jpg")
+      attach_file(
+        "album_photos_attributes_0_photo",
+        Rails.root + "spec/fixtures/Airturbine.jpg"
+        )
+      attach_file(
+        "album_photos_attributes_1_photo",
+        Rails.root + "spec/fixtures/ice-boats.jpg"
+        )
       click_on "Save Album"
 
       expect(page).to have_content "You've created a new album!"
@@ -100,7 +106,10 @@ feature "Create a new album" do
 
       fill_in "Album Name", with: "Vacation Pics"
       fill_in "Description", with: "These are pictures of my family on vacation!"
-      attach_file("album_photos_attributes_0_photo", Rails.root + "spec/fixtures/Amnesia-cover.mp3")
+      attach_file(
+        "album_photos_attributes_0_photo",
+        Rails.root + "spec/fixtures/Amnesia-cover.mp3"
+        )
       click_on "Save Album"
       expect(page).to have_content "must be an image (only png, gif or jpg files)"
     end
