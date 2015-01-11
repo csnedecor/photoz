@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
-    @photos = @album.photos.order(photo_file_name: :desc)
+    @photos = @album.photos.order(id: :asc)
   end
 
   def edit
@@ -57,7 +57,6 @@ class AlbumsController < ApplicationController
     if album.destroy
       flash[:notice] = "Successfully deleted #{album.name}"
       redirect_to user_path(album.user)
-    else
     end
   end
 

@@ -18,10 +18,10 @@ feature 'view album page' do
 
     expect(page).to have_content album.description
     within('#photo0') do
-      expect(find('img')['src']).to have_content "ice-boats.jpg"
+      expect(find('img')['src']).to have_content "Airturbine.jpg"
     end
     within('#photo1') do
-      expect(find('img')['src']).to have_content "Airturbine.jpg"
+      expect(find('img')['src']).to have_content "ice-boats.jpg"
     end
   end
 end
