@@ -122,6 +122,10 @@ feature "Edit album" do
 
       expect(page).not_to have_content "Edit album"
 
+      visit user_path(album.user)
+
+      expect(page).not_to have_content "Edit album"
+
       visit edit_album_path(album)
 
       expect(page).to have_content "You must be signed in to do that"

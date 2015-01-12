@@ -40,6 +40,6 @@
     <%= @album.description %>
   </p>
   <div id = "user">
-    <%= @album.user.username %>
+    <%= link_to(@album.user.username, user_path(@album.user)) %>
   </div>
 </div>

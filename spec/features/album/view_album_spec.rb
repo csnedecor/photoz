@@ -23,5 +23,6 @@ feature "view album page" do
     within("#photo1") do
       expect(find("img")["src"]).to have_content "ice-boats.jpg"
     end
+    expect(page).to have_link album.user.username
   end
 end
