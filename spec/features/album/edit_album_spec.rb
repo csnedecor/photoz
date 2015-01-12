@@ -8,7 +8,7 @@ feature "Edit album" do
   # Acceptance Criteria:
   # [X] If I'm not logged in, I can't see the option to edit my album when I am
   #    on my album's page
-  # [] If I am logged in, I can see the option to edit each of my albums
+  # [X] If I am logged in, I can see the option to edit each of my albums
   #    when I view the list of my albums in my user profile
   # [X] I can only edit my album when I am logged in.
   # [X] I can only edit my own albums
@@ -28,13 +28,7 @@ feature "Edit album" do
       @existing_user = FactoryGirl.create(:user)
       @existing_album = FactoryGirl.create(:album, user: @existing_user)
 
-      visit root_path
-      click_on "Sign In"
-
-      fill_in "Email", with: @existing_user.email
-      fill_in "Password", with: @existing_user.password
-      click_on "Sign in"
-
+      sign_in(@existing_user)
     end
 
     scenario "User inputs valid information" do
@@ -104,6 +98,19 @@ feature "Edit album" do
       visit edit_album_path(other_album)
 
       expect(page).to have_content "You can't edit someone else's album"
+    end
+
+    scenario "User edits album from their profile page" do
+      other_album = FactoryGirl.create(:album)
+
+      visit user_path(@existing_user)
+
+      expect(page).not_to have_content other_album.name
+      expect(page).to have_content @existing_album.name
+
+      click_on "Edit album"
+
+      expect(page).to have_content "Edit your album"
     end
   end
 

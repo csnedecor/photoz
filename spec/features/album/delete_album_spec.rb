@@ -17,13 +17,7 @@ feature "User deletes album" do
 
     before(:each) do
       @existing_user = FactoryGirl.create(:user)
-
-      visit root_path
-      click_on "Sign In"
-
-      fill_in "Email", with: @existing_user.email
-      fill_in "Password", with: @existing_user.password
-      click_on "Sign in"
+      sign_in(@existing_user)
     end
 
     scenario "User successfully deletes an album" do
