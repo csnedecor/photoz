@@ -66,7 +66,6 @@
       <% end %>
 
       <%= yield %>
-      <%= javascript_include_tag "application" %>
 
       <footer class="row">
         <div class="large-12 columns"><hr/>
@@ -79,5 +78,6 @@
       </footer>
     </div>
   </div>
+  <%= javascript_include_tag "application" %>
   </body>
 </html>

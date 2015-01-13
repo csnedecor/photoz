@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "callbacks" }
   resources :users, only: [:show]
   resources :albums do
-    resources :photos, only: [:show]
+    resources :photos, only: [:show, :edit, :update]
   end
   root 'albums#index'
   # The priority is based upon order of creation: first created -> highest priority.

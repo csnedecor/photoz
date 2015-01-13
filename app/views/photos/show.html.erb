@@ -1,6 +1,6 @@
 <div class="black-background">
   <div class="row">
-    <%= image_tag(@photo.photo.url, class: "only-photo") %>
+    <%= image_tag(@photo.photo.url(:large), class: "only-photo") %>
   </div>
 </div>
 
@@ -12,4 +12,6 @@
   <div id = "user">
     <%= @album.user.username %>
   </div>
+  <%= link_to "Edit Photo", edit_album_photo_path(@album, @photo) %>
 </div>
+

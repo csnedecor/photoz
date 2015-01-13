@@ -6,7 +6,7 @@
         <% @photos.each do |photo| %>
         <li>
           <div class="center-helper">
-            <%= link_to(image_tag(photo.photo.url), album_photo_path(@album, photo), id: "photo#{n}") %>
+            <%= link_to(image_tag(photo.photo.url(:large)), album_photo_path(@album, photo), id: "photo#{n}") %>
             <% n += 1 %>
           </div>
         </li>
@@ -20,7 +20,7 @@
         <% n = 1 %>
         <% @photos.each do |photo| %>
         <li>
-          <%= link_to(image_tag(photo.photo.url), "#") %>
+          <%= link_to(image_tag(photo.photo.url(:thumb)), "#") %>
           <% n += 1 %>
         </li>
         <% end %>
