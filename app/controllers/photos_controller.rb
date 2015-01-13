@@ -9,7 +9,6 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
 
-
   def update
     photo = Photo.find(params[:id])
     if photo.update(photo_params)
