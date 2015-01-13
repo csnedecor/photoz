@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
   belongs_to :album
 
   has_attached_file :photo,
-                    styles: {  large: "910*650>",  medium: "700*500>",  thumb: "350*250>" },
+                    styles: { large: "910*650>",  medium: "700*500>",  thumb: "350*250" },
                     default_url: "/images/:style/missing.png",
                     path: ":rails_root/public/storage/#{Rails.env}#{ENV['RAILS_TEST_NUMBER']}/attachments/:id/:style/:basename.:extension",
                     url: "/storage/#{Rails.env}#{ENV['RAILS_TEST_NUMBER']}/attachments/:id/:style/:basename.:extension",

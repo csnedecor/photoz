@@ -1,6 +1,4 @@
-$(function($) {
-  $('#edit-photo').Jcrop();
-});
+
 
 function update_crop(coords) {
   $('#crop_x').val(coords.x);

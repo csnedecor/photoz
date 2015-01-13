@@ -1,7 +1,7 @@
 <div class="black-background">
   <div class="row">
     <h1>Edit Your Photo</h1>
-    <%= image_tag(@photo.photo.url, class: "only-photo", id: "edit-photo") %>
+    <%= image_tag(@photo.photo.url(:original), class: "only-photo", id: "edit-photo") %>
   </div>
   <%= form_for([@album, @photo]) do |f| %>
     <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
@@ -20,5 +20,4 @@
     <%= @album.user.username %>
   </div>
 </div>
-
 
