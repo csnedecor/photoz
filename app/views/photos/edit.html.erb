@@ -5,9 +5,11 @@
   </div>
   <%= form_for([@album, @photo]) do |f| %>
     <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
-      <%= f.text_field attribute, id: attribute %>
+      <%= f.hidden_field attribute, id: attribute %>
     <% end %>
-    <p><%= f.submit "Crop" %></p>
+    <div class="center">
+      <%= f.submit "Crop" %>
+    </div>
   <% end %>
 </div>
 
