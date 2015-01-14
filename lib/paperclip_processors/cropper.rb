@@ -2,7 +2,7 @@ module Paperclip
   class Cropper < Thumbnail
     def transformation_command
       if crop_command
-        crop_command + super.join(' ').sub(/ -crop \S+/, '').split(' ')
+        crop_command + super.join(" ").sub(/ -crop \S+/, "").split(" ")
       else
         super
       end

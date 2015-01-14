@@ -12,6 +12,8 @@
   <div id = "user">
     <%= @album.user.username %>
   </div>
-  <%= link_to "Edit Photo", edit_album_photo_path(@album, @photo) %>
+  <% if current_user == @album.user %>
+    <%= link_to "Edit Photo", edit_album_photo_path(@album, @photo) %>
+  <% end %>
 </div>
 
