@@ -18,6 +18,9 @@ class AlbumsController < ApplicationController
       flash[:notice] = "You've created a new album!"
       redirect_to album_path(@album)
     else
+      if @album.photos == []
+        5.times { @album.photos.build }
+      end
       render "new"
     end
   end
@@ -41,7 +44,6 @@ class AlbumsController < ApplicationController
 
   def update
     album = Album.find(params[:id])
-
     if album.update(album_params)
       flash[:notice] = "Successfully updated album!"
       redirect_to album_path(album)
