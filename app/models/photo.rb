@@ -12,10 +12,10 @@ class Photo < ActiveRecord::Base
                     url: "/storage/#{Rails.env}#{ENV['RAILS_TEST_NUMBER']}/attachments/:id/:style/:basename.:extension",
                     processors: [:cropper]
   validates_attachment :photo,
-                        content_type: {
-                          content_type: /\Aimage\/.*\Z/,
-                          message: "must be an image (only png, gif or jpg files)"
-                        }
+                       content_type: {
+                         content_type: /\Aimage\/.*\Z/,
+                         message: "must be an image (only png, gif or jpg files)"
+                       }
 
   after_validation :clean_paperclip_errors
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
