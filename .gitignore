@@ -16,5 +16,4 @@
 /tmp
 /coverage
 .env
-/coverage
 /public/assets

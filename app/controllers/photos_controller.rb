@@ -8,9 +8,8 @@ class PhotosController < ApplicationController
     @album = Album.find(params[:album_id])
     @photo = Photo.find(params[:id])
     if !signed_in?
-      flash[:alert] = "You must be signed in to do that"
-      redirect_to album_photo_path(@album, @photo)
-    elsif@album.user != current_user
+      authenticate_user!
+    elsif @album.user != current_user
       flash[:alert] = "You can't edit someone else's photo"
       redirect_to album_photo_path(@album, @photo)
     end

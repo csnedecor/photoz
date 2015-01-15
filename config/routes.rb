@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :albums do
     resources :photos, only: [:show, :edit, :update]
+    resources :analytics, only: [:index]
   end
   root 'albums#index'
   # The priority is based upon order of creation: first created -> highest priority.

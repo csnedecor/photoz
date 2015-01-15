@@ -28,13 +28,13 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
     @photos = @album.photos.order(id: :asc)
+    Album.increment_counter(:pageviews, @album)
   end
 
   def edit
     @album = Album.find(params[:id])
     if !signed_in?
-      flash[:alert] = "You must be signed in to do that"
-      redirect_to album_path(@album)
+      authenticate_user!
     elsif @album.user != current_user
       flash[:alert] = "You can't edit someone else's album"
       redirect_to album_path(@album)
