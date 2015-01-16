@@ -7,5 +7,4 @@ describe Visit do
     it { should respond_to :ip_address }
   end
 
-
 end

@@ -1,5 +1,4 @@
 class AnalyticsController < ApplicationController
-
   def index
     @album = Album.find(params[:album_id])
     @unique_pageviews = Visit.where(album: @album).count
@@ -10,5 +9,4 @@ class AnalyticsController < ApplicationController
       redirect_to album_path(@album)
     end
   end
-
 end
