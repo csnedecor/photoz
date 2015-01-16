@@ -1,5 +1,10 @@
 <h1>Analytics</h1>
 <ul>
-  <li>Pageviews: <%= @album.pageviews %></li>
-  <li>Unique Pageviews: <%= @unique_pageviews %></li>
+  <li>Total Pageviews: <%= @album.pageviews %></li>
+  <li>Total Unique Pageviews: <%= @unique_visits_count %></li>
+
+  <% @visit_dates.each do |date| %>
+    <p><%= @unique_visits.where(["created_at >= ? AND created_at <= ?", date.beginning_of_day, date.end_of_day]).count %></p>
+    <p><%= date %></p>
+  <% end %>
 </ul>

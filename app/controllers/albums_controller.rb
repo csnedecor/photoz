@@ -13,7 +13,6 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.new(album_params)
     @album.user = current_user
-    @album.save
     if @album.save
       flash[:notice] = "You've created a new album!"
       redirect_to album_path(@album)
@@ -29,10 +28,10 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @photos = @album.photos.order(id: :asc)
     Album.increment_counter(:pageviews, @album)
-    if cookies["album_viewed"]
+    if cookies["#{@album.name}_viewed"]
       return
     else
-      cookies["album_viewed"] = true
+      cookies["#{@album.name}_viewed"] = { expires: 1.year.from_now }
       Visit.create(album: @album, ip_address: request.ip)
     end
   end

@@ -12,10 +12,11 @@ feature "User sees analytics" do
   # [X] I can only see my own album's analytics
   # [X] I can see how many page visits I've had
   # [X] I can see unique pageviews
+  # [] I can see daily unique pageviews in weekly increments
   # [] I can see where in the world pageviews are coming from
   # [] I can see the average amount of time people spend on my page
 
-  scenario "A visitor visits an album page, pageviews increment" do
+  scenario "A visitor visits an album page, pageviews increment", focus: true do
     user = create(:user)
     album = create(:album, user: user)
 
@@ -28,7 +29,17 @@ feature "User sees analytics" do
     click_on "View Album Analytics"
 
     expect(page).to have_content "Pageviews: 2"
-    expect(page).to have_content "Unique Pageviews: 1"
+    expect(page).to have_content "Unique Pageviews Today: 1"
+  end
+
+  scenario "User views their unique views by week" do
+    user = create(:user)
+    album = create(:album, user: user)
+    sign_in(user)
+
+    visit analytics_path(album)
+
+
   end
 
   scenario "Visitor tries to view an album's analytics" do
