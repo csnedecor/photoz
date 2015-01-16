@@ -3,6 +3,8 @@ require "rails_helper"
 describe Album do
   let(:blanks) { ["", nil] }
 
+  it { should respond_to(:pageviews) }
+
   describe "validations" do
     it { should have_valid(:name).when("a", "Album Name", "32") }
     it { should_not have_valid(:name).when(*blanks) }

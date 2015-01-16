@@ -29,6 +29,12 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @photos = @album.photos.order(id: :asc)
     Album.increment_counter(:pageviews, @album)
+    if cookies["album_viewed"]
+      return
+    else
+      cookies["album_viewed"] = true
+      Visit.create(album: @album, ip_address: request.ip)
+    end
   end
 
   def edit

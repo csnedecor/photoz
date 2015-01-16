@@ -10,8 +10,8 @@ feature "User sees analytics" do
   #
   # [X] I must be logged in to view my page analytics
   # [X] I can only see my own album's analytics
-  # [] I can see how many page visits I've had
-  # [] I can see unique pageviews
+  # [X] I can see how many page visits I've had
+  # [X] I can see unique pageviews
   # [] I can see where in the world pageviews are coming from
   # [] I can see the average amount of time people spend on my page
 
@@ -28,6 +28,7 @@ feature "User sees analytics" do
     click_on "View Album Analytics"
 
     expect(page).to have_content "Pageviews: 2"
+    expect(page).to have_content "Unique Pageviews: 1"
   end
 
   scenario "Visitor tries to view an album's analytics" do
