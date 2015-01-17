@@ -5,7 +5,8 @@ class AnalyticsController < ApplicationController
     @unique_visits_count = @unique_visits.count
     today = Time.now
     album_created_date = @album.created_at
-    @visit_dates = (Date.parse(album_created_date.to_s)..Date.parse(today.to_s)).to_a
+    @visit_dates =
+      (Date.parse(album_created_date.to_s)..Date.parse(today.to_s)).to_a
     if !signed_in?
       authenticate_user!
     elsif @album.user != current_user

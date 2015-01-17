@@ -16,7 +16,7 @@ feature "User sees analytics" do
   # [] I can see where in the world pageviews are coming from
   # [] I can see the average amount of time people spend on my page
 
-  scenario "A visitor visits an album page, pageviews increment", focus: true do
+  scenario "A visitor visits an album page, pageviews increment" do
     user = create(:user)
     album = create(:album, user: user)
 
@@ -29,17 +29,7 @@ feature "User sees analytics" do
     click_on "View Album Analytics"
 
     expect(page).to have_content "Pageviews: 2"
-    expect(page).to have_content "Unique Pageviews Today: 1"
-  end
-
-  scenario "User views their unique views by week" do
-    user = create(:user)
-    album = create(:album, user: user)
-    sign_in(user)
-
-    visit analytics_path(album)
-
-
+    expect(page).to have_content "Total Unique Pageviews: 1"
   end
 
   scenario "Visitor tries to view an album's analytics" do
