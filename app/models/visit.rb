@@ -13,7 +13,11 @@ class Visit < ActiveRecord::Base
       visit_dates.each do |date|
         daily_visit_count =
           unique_visits.where(
-            ["created_at >= ? AND created_at <= ?", date.beginning_of_day, date.end_of_day]
+            [
+              "created_at >= ? AND created_at <= ?",
+              date.beginning_of_day,
+              date.end_of_day
+            ]
           ).count
         csv << [daily_visit_count, "#{date}"]
       end
