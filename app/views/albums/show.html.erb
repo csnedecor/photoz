@@ -35,6 +35,7 @@
   <% if @album.user == current_user %>
     <%= link_to "Edit album", edit_album_path %>
     <%= link_to "Delete Album", album_path(@album), method: :delete %>
+    <%= link_to "View Album Analytics", album_analytics_path(@album) %>
   <% end %>
   <p>
     <%= @album.description %>

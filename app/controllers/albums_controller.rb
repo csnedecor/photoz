@@ -13,7 +13,6 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.new(album_params)
     @album.user = current_user
-    @album.save
     if @album.save
       flash[:notice] = "You've created a new album!"
       redirect_to album_path(@album)
@@ -28,13 +27,19 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
     @photos = @album.photos.order(id: :asc)
+    Hit.create(album: @album)
+    if cookies["#{@album.name}_viewed"]
+      return
+    else
+      cookies["#{@album.name}_viewed"] = { expires: 1.year.from_now }
+      Visit.create(album: @album, ip_address: request.ip)
+    end
   end
 
   def edit
     @album = Album.find(params[:id])
     if !signed_in?
-      flash[:alert] = "You must be signed in to do that"
-      redirect_to album_path(@album)
+      authenticate_user!
     elsif @album.user != current_user
       flash[:alert] = "You can't edit someone else's album"
       redirect_to album_path(@album)

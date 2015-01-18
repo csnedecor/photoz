@@ -3,6 +3,21 @@ require "rails_helper"
 describe Album do
   let(:blanks) { ["", nil] }
 
+  describe "attributes" do
+    it { should respond_to :name }
+    it { should respond_to :description }
+    it { should respond_to :user_id }
+    it { should respond_to :created_at }
+    it { should respond_to :updated_at }
+  end
+
+  describe "associations" do
+    it { should have_many :photos }
+    it { should belong_to :user }
+    it { should have_many :visits }
+    it { should have_many :hits }
+  end
+
   describe "validations" do
     it { should have_valid(:name).when("a", "Album Name", "32") }
     it { should_not have_valid(:name).when(*blanks) }
@@ -26,10 +41,5 @@ describe Album do
       album = create(:album)
       expect { album.destroy }.to change(Photo, :count).by(-2)
     end
-  end
-
-  describe "associations" do
-    it { should have_many :photos }
-    it { should belong_to :user }
   end
 end

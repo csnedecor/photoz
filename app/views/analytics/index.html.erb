@@ -1,0 +1,9 @@
+<h1>Analytics</h1>
+<ul>
+  <li>Total Pageviews: <%= @pageviews %></li>
+  <li>Total Unique Pageviews: <%= @unique_visits_count %></li>
+</ul>
+
+<div id="chart"></div>
+
+<%= link_to "Download data", album_visits_path(@album, format: "csv") %>
