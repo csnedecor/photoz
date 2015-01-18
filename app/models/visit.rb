@@ -20,13 +20,13 @@ class Visit < ActiveRecord::Base
               date.end_of_day
             ]
           ).count
-          daily_hit_count = hits.where(
-            [
-              "created_at >= ? AND created_at <= ?",
-              date.beginning_of_day,
-              date.end_of_day
-            ]
-          ).count
+        daily_hit_count = hits.where(
+          [
+            "created_at >= ? AND created_at <= ?",
+            date.beginning_of_day,
+            date.end_of_day
+          ]
+        ).count
         csv << [daily_hit_count, daily_visit_count, "#{date}"]
       end
     end
