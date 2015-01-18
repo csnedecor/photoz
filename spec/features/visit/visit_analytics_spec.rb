@@ -32,6 +32,16 @@ feature "User sees analytics" do
     expect(page).to have_content "Total Unique Pageviews: 1"
   end
 
+  scenario "User downloads csv of pageview data" do
+    user = create(:user)
+    album = create(:album, user: user)
+    sign_in(user)
+
+    visit album_analytics_path(album)
+
+    expect(page).to have_link "Download data"
+  end
+
   scenario "Visitor tries to view an album's analytics" do
     album = create(:album)
 

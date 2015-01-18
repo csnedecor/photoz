@@ -1,8 +1,8 @@
 class AnalyticsController < ApplicationController
   def index
     @album = Album.find(params[:album_id])
-    @unique_visits = Visit.where(album: @album)
-    @unique_visits_count = @unique_visits.count
+    @unique_visits_count = Visit.where(album: @album).count
+    @pageviews = Hit.where(album: @album).count
     today = Time.now
     album_created_date = @album.created_at
     @visit_dates =

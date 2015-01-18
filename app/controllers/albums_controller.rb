@@ -27,7 +27,7 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
     @photos = @album.photos.order(id: :asc)
-    Album.increment_counter(:pageviews, @album)
+    Hit.create(album: @album)
     if cookies["#{@album.name}_viewed"]
       return
     else
