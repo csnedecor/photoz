@@ -3,11 +3,10 @@ class Visit < ActiveRecord::Base
 
   def self.todays_visits_to_csv(album)
     today = Time.now
-    unique_visits = Visit.where(album: album)
-    hits = Hit.where(album: album)
-    album_created_date = album.created_at
+    unique_visits = album.visits
+    hits = album.hits
     visit_dates =
-      (Date.parse(album_created_date.to_s)..Date.parse(today.to_s)).to_a
+      (Date.parse(album.created_at.to_s)..Date.parse(today.to_s)).to_a
 
     CSV.generate do |csv|
       csv << %w(Pageviews UniqueVisits x)

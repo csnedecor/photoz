@@ -63,11 +63,5 @@ feature "User sees analytics" do
     visit album_path(album)
 
     expect(page).not_to have_link "View Album Analytics"
-
-    visit album_analytics_path(album)
-
-    expect(page).to have_content "You can't view another user's analytics"
-    expect(page).not_to have_content "Pageviews"
   end
-
 end

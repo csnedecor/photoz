@@ -44,11 +44,6 @@ feature "Edit a photo" do
       visit album_photo_path(other_album, other_album.photos.first)
 
       expect(page).not_to have_content "Edit Photo"
-
-      visit edit_album_photo_path(other_album, other_album.photos.first)
-
-      expect(page).to have_content "You can't edit someone else's photo"
-      expect(page).not_to have_content "Edit Your Photo"
     end
   end
 

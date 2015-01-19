@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe Hit do
-  describe "attributes", focus: true do
+  describe "attributes" do
     it { should respond_to :album }
     it { should respond_to :created_at }
     it { should respond_to :updated_at }

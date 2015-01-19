@@ -89,15 +89,11 @@ feature "Edit album" do
     end
 
     scenario "User tries to edit another user's album" do
-      other_album = FactoryGirl.create(:album)
+      other_album = create(:album)
 
       visit album_path(other_album)
 
       expect(page).not_to have_content "Edit album"
-
-      visit edit_album_path(other_album)
-
-      expect(page).to have_content "You can't edit someone else's album"
     end
 
     scenario "User edits album from their profile page" do

@@ -1,22 +1,19 @@
 class PhotosController < ApplicationController
+
+  before_action :authenticate_user!, except: [:show]
+
   def show
     @album = Album.find(params[:album_id])
     @photo = Photo.find(params[:id])
   end
 
   def edit
-    @album = Album.find(params[:album_id])
+    @album = current_user.albums.find(params[:album_id])
     @photo = Photo.find(params[:id])
-    if !signed_in?
-      authenticate_user!
-    elsif @album.user != current_user
-      flash[:alert] = "You can't edit someone else's photo"
-      redirect_to album_photo_path(@album, @photo)
-    end
   end
 
   def update
-    photo = Photo.find(params[:id])
+    photo = current_user.photos.find(params[:id])
     if photo.update(photo_params)
       photo.reprocess_photo
       flash[:notice] = "Successfully cropped photo"
