@@ -1,7 +1,5 @@
 $(function () {
 
-  // Prepare demo data
-
   // Initiate the chart
   $('#container').highcharts('Map', {
 
@@ -10,7 +8,7 @@ $(function () {
     },
 
     subtitle : {
-      text : 'Source map: <a href="http://code.highcharts.com/mapdata/custom/usa-and-canada.js">Canada and United States of America</a>'
+      text : 'Source map: <a href="http://code.highcharts.com/mapdata/countries/us/us-all.js">United States of America</a>'
     },
 
     mapNavigation: {
@@ -26,7 +24,7 @@ $(function () {
 
     series : [{
       data : data,
-      mapData: Highcharts.maps['custom/usa-and-canada'],
+      mapData: Highcharts.maps['countries/us/us-all'],
       joinBy: 'hc-key',
       name: 'Random data',
       states: {
@@ -38,6 +36,13 @@ $(function () {
         enabled: true,
         format: '{point.name}'
       }
+    }, {
+      name: 'Separators',
+      type: 'mapline',
+      data: Highcharts.geojson(Highcharts.maps['countries/us/us-all'], 'mapline'),
+      color: 'silver',
+      showInLegend: false,
+      enableMouseTracking: false
     }]
   });
 });
