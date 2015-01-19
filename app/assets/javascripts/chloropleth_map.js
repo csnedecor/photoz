@@ -3,6 +3,10 @@ $(function () {
   // Initiate the chart
   $('#container').highcharts('Map', {
 
+    chart: {
+      height: 800
+    },
+
     title : {
       text : 'Highmaps basic demo'
     },

@@ -8,6 +8,8 @@
 
 <%= link_to "Download data", album_visits_path(@album, format: "csv") %>
 
+<div id="container"></div>
+
 <% if !Rails.env.test? %>
   <%= content_for :extra_footer do %>
     <script src="http://code.highcharts.com/maps/highmaps.js"></script>
@@ -17,8 +19,6 @@
     <script type="text/javascript">
       var data = <%= raw @map_data.to_json %>;
     </script>
-
-    <div id="container"></div>
 
   <% end %>
 <% end %>
