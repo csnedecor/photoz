@@ -1,7 +1,7 @@
 class Visit < ActiveRecord::Base
   belongs_to :album
 
-  def self.todays_visits_to_csv(album)
+  def self.daily_visits_to_csv(album)
     today = Time.now
     unique_visits = album.visits
     hits = album.hits
