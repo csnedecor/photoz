@@ -7,6 +7,7 @@ describe Hit do
     it { should respond_to :updated_at }
     it { should respond_to :latitude }
     it { should respond_to :longitude }
+    it { should respond_to :region_code}
   end
 
   describe "associations" do
