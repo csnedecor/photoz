@@ -1,5 +1,6 @@
 class Photo < ActiveRecord::Base
   belongs_to :album
+  belongs_to :user
 
   has_attached_file :photo,
                     styles: {

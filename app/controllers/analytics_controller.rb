@@ -1,17 +1,25 @@
 class AnalyticsController < ApplicationController
   def index
-    @album = Album.find(params[:album_id])
-    @unique_visits_count = Visit.where(album: @album).count
-    @pageviews = Hit.where(album: @album).count
-    today = Time.now
-    album_created_date = @album.created_at
-    @visit_dates =
-      (Date.parse(album_created_date.to_s)..Date.parse(today.to_s)).to_a
-    if !signed_in?
-      authenticate_user!
-    elsif @album.user != current_user
-      flash[:alert] = "You can't view another user's analytics"
-      redirect_to album_path(@album)
+    authenticate_user!
+    @album = current_user.albums.find(params[:album_id])
+    @unique_visits_count = @album.visits.count
+    @pageviews = @album.hits.count
+    states = [
+      "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI",
+      "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN",
+      "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY",  "OH",
+      "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA",
+      "WI", "WV", "WY"
+    ]
+    @map_data = []
+    states.each do |state|
+      value = 0
+      @map_data << { "hc-key" => "us-#{state.downcase}", "value" => value }
+      @album.hits.each do |hit|
+        if hit.region_code == state
+          value += 1
+        end
+      end
     end
   end
 end
