@@ -8,7 +8,7 @@ $(function () {
     },
 
     title : {
-      text : 'Highmaps basic demo'
+      text : 'Pageviews By State'
     },
 
     subtitle : {
@@ -30,7 +30,7 @@ $(function () {
       data : data,
       mapData: Highcharts.maps['countries/us/us-all'],
       joinBy: 'hc-key',
-      name: 'Random data',
+      name: 'Pageviews',
       states: {
         hover: {
           color: '#BADA55'
