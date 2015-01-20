@@ -44,8 +44,8 @@ a:hover{
 }
 
 /* Homepage */
-.large-8{
-  width:100%;
+.large-12{
+  width:99%;
 }
 .panel.home {
   border: none;
@@ -83,6 +83,14 @@ a:hover{
   padding-right: 0.3rem;
   margin-top: 1.3rem;
   margin-bottom:-5rem;
+}
+.column.home{
+  position: relative;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 .row.home{
   -webkit-flex-wrap: wrap;
@@ -127,11 +135,6 @@ img.index{
 .panel h1 a:hover{
   color: #006dac;
   background: none;
-}
-@media (min-width: 64.063em){
-  .large-4.home{
-    width:33%;
-  }
 }
 
 /* Flexslider */

@@ -5,8 +5,9 @@
   <% provide(:title, "Home") %>
 </head>
 <body>
-  
-  <div class="large-12 columns">
+
+
+  <div class="large-12 column home">
     <div id="masonryContainer">
       <% @albums.each do |album| %>
       <div class="masonry-brick">
@@ -24,5 +25,6 @@
       <% end %>
     </div>
   </div>
+
 
 </body>
