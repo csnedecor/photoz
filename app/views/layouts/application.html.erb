@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='http://fonts.googleapis.com/css?family=Pacifico'
+      rel='stylesheet' type='text/css'>
+      <link href=
+        'http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic'
+        rel='stylesheet' type='text/css'>
 
     <title><%= yield(:title) %> | Photoz</title>
     <%= stylesheet_link_tag    "application" %>
@@ -66,7 +71,7 @@
       <%= yield %>
 
       <% if !current_page?(root_path) %>
-        <footer class="row">
+        <footer>
           <div class="large-12 columns"><hr/>
 
             <div class="large-6 columns">
