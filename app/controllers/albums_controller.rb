@@ -29,7 +29,8 @@ class AlbumsController < ApplicationController
     @photos = @album.photos.order(id: :asc)
     Hit.create(
       album: @album,
-      ip_address: request.ip
+      ip_address: request.ip,
+      region_code: request.location.state_code
     )
     if !cookies["#{@album.name}_viewed"]
       cookies["#{@album.name}_viewed"] = { expires: 1.year.from_now }
