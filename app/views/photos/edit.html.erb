@@ -1,6 +1,6 @@
 <div class="black-background">
   <div class="row">
-    <h1>Edit Your Photo</h1>
+    <h2 class="text-center white">Edit Your Photo</h1>
     <%= image_tag(@photo.photo.url, class: "center", id: "edit-photo") %>
   </div>
   <%= form_for([@album, @photo]) do |f| %>
@@ -22,4 +22,3 @@
     <%= @album.user.username %>
   </div>
 </div>
-

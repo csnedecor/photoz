@@ -34,9 +34,9 @@
   <h1><%= @album.name %></h1>
   <blockquote>
     <%= @album.description %>
-    <p>
+    <div id="user">
       ~ <%= link_to(@album.user.username, user_path(@album.user)) %>
-    </p>
+    </div>
   </blockquote>
 </div>
 <% if @album.user == current_user %>

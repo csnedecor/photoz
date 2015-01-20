@@ -235,6 +235,13 @@ img.index{
   display: table;
   margin: 0 auto;
 }
+.white{
+  color: white;
+}
+.jcrop-holder{
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* Flexslider */
 .flexslider .slides img{
