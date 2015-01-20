@@ -5,11 +5,11 @@
   <% provide(:title, "Home") %>
 </head>
 <body>
-
-  <div class="row home">
-
-    <% @albums.each do |album| %>
-      <div class="large-4 small-6 columns home">
+  
+  <div class="large-12 columns">
+    <div id="masonryContainer">
+      <% @albums.each do |album| %>
+      <div class="masonry-brick">
         <%= link_to(image_tag(album.photos[0].photo.url(:thumb), class: "index"), album_path(album)) %>
         <div class="panel home">
           <h5>
@@ -21,9 +21,8 @@
           </h6>
         </div>
       </div>
-    <% end %>
-
+      <% end %>
+    </div>
   </div>
 
 </body>
-</html>

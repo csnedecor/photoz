@@ -97,6 +97,12 @@ img.index{
   -webkit-box-shadow: 3px 3px 5px 0px rgba(168, 168, 168, .75);
   -moz-box-shadow: 3px 3px 5px 0px rgba(168, 168, 168, .75);
 }
+.masonry-brick {
+  width: 350px;
+  margin: 10px;
+  float: left;
+}
+#masonryContainer { width: 0 auto; }
 
 /* Album */
 .only-photo{
