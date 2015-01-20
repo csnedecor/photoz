@@ -65,15 +65,17 @@
 
       <%= yield %>
 
-      <footer class="row">
-        <div class="large-12 columns"><hr/>
+      <% if !current_page?(root_path) %>
+        <footer class="row">
+          <div class="large-12 columns"><hr/>
 
-          <div class="large-6 columns">
-            <p>© 2014 Photoz</p>
+            <div class="large-6 columns">
+              <p>© 2014 Photoz</p>
+            </div>
+
           </div>
-
-        </div>
-      </footer>
+        </footer>
+      <% end %>
     </div>
   </div>
   <%= javascript_include_tag "application" %>

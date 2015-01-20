@@ -5,25 +5,43 @@
   <% provide(:title, "Home") %>
 </head>
 <body>
-
-
-  <div class="large-12 column home">
-    <div id="masonryContainer">
-      <% @albums.each do |album| %>
-      <div class="masonry-brick">
-        <%= link_to(image_tag(album.photos[0].photo.url(:thumb), class: "index"), album_path(album)) %>
-        <div class="panel home">
-          <h5>
-            <%= link_to(album.name, album_path(album), class: "photo-title") %>
-          </h5>
-          <h6 class="subheader">
-            by <%= link_to(album.user.username, user_path(album.user),
-            class: "username") %>
-          </h6>
-        </div>
-      </div>
-      <% end %>
+  <div class="parallax-background">
+    <div class="intro-text">
+      Adventure, travel, soul. Record it here.
+      <p><i class="fi-arrow-down"></i></p>
     </div>
+  </div>
+
+  <div class="parallax-content">
+    <div class="large-12 column home">
+      <div id="masonryContainer">
+        <% @albums.each do |album| %>
+        <div class="masonry-brick">
+          <%= link_to(image_tag(album.photos[0].photo.url(:thumb), class: "index"), album_path(album)) %>
+            <div class="panel home">
+              <h5>
+                <%= link_to(album.name, album_path(album), class: "photo-title") %>
+              </h5>
+              <h6 class="subheader">
+                by <%= link_to(album.user.username, user_path(album.user),
+                class: "username") %>
+              </h6>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <footer class="row">
+      <div class="large-12 columns"><hr/>
+
+        <div class="large-6 columns">
+          <p>© 2014 Photoz</p>
+        </div>
+
+      </div>
+    </footer>
+
   </div>
 
 

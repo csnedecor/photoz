@@ -113,6 +113,40 @@ img.index{
 }
 #masonryContainer { width: 0 auto; }
 
+.parallax-background {
+  background-color: #0078A0;
+  height: 620px;
+  background-repeat: no-repeat;
+  background-image: url("sun.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+}
+.parallax-background img{
+  width:100%;
+}
+
+.intro-text {
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
+  margin-top: 15%;
+}
+.parallax-content {
+  max-width: 100%;
+  position: relative;
+  top: 500px;
+  padding: 50px;
+  font-size: 20px;
+  background-color: #fff;
+  -webkit-box-shadow: 5px 12px 16px 14px rgba(81, 81, 81, 0.75);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(168, 168, 168, .75);
+  box-shadow: black;
+}
+
 /* Album */
 .only-photo{
   margin-left:auto;
