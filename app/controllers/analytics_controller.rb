@@ -14,12 +14,12 @@ class AnalyticsController < ApplicationController
     @map_data = []
     states.each do |state|
       value = 0
-      @map_data << { "hc-key" => "us-#{state.downcase}", "value" => value }
       @album.hits.each do |hit|
         if hit.region_code == state
           value += 1
         end
       end
+      @map_data << { "hc-key" => "us-#{state.downcase}", "value" => value }
     end
   end
 end
