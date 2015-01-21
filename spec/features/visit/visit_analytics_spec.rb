@@ -39,7 +39,10 @@ feature "User sees analytics" do
 
     visit album_analytics_path(album)
 
-    expect(page).to have_link "Download data"
+    click_on "Download data"
+
+    csv = CSV.parse(page.text)
+    csv.first.should == ["Pageviews", "UniqueVisits", "x"]
   end
 
   scenario "Visitor tries to view an album's analytics" do

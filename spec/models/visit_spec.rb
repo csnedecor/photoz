@@ -14,13 +14,13 @@ describe Visit do
   end
 
   describe ".daily_visits_to_csv" do
-      album = FactoryGirl.create(:album)
+    album = FactoryGirl.create(:album)
 
-      subject { Visit.daily_visits_to_csv(album) }
+    subject { Visit.daily_visits_to_csv(album) }
 
-      it { should include "Pageviews" }
-      it { should include "UniqueVisits" }
-      it { should include "x" }
+    it { should include "Pageviews" }
+    it { should include "UniqueVisits" }
+    it { should include "x" }
   end
 
 end
