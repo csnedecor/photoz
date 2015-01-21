@@ -29,7 +29,7 @@ feature "User sees analytics" do
     click_on "View Album Analytics"
 
     expect(page).to have_content "Pageviews: 2"
-    expect(page).to have_content "Total Unique Pageviews: 1"
+    expect(page).to have_content "Unique Pageviews: 1"
   end
 
   scenario "User downloads csv of pageview data" do
@@ -39,7 +39,17 @@ feature "User sees analytics" do
 
     visit album_analytics_path(album)
 
-    expect(page).to have_link "Download data"
+    click_on "Download data"
+
+    csv = CSV.parse(page.text)
+
+    csv.first.should == [
+      "Pageviews",
+      "UniqueVisits",
+      "x 0",
+      "0",
+      Date.today.strftime("%Y-%m-%d")
+    ]
   end
 
   scenario "Visitor tries to view an album's analytics" do
