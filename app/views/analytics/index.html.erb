@@ -1,19 +1,21 @@
-<h1>Analytics</h1>
-<h3>Comparison of Pageviews and Unique Visits Per Day</h3>
-<ul>
-  <li>Total Pageviews: <%= @pageviews %></li>
-  <li>Total Unique Pageviews: <%= @unique_visits_count %></li>
-</ul>
+<div class="analytics-holder">
+  <h1 class="text-center">Analytics</h1>
+  <h3 class="text-center">Comparison of Pageviews and Unique Visits Per Day</h3>
 
-<div id="chart"></div>
+  <div id="chart"></div>
 
-<%= link_to "Download data", album_visits_path(@album, format: "csv") %>
+  <%= link_to "Download data", album_visits_path(@album, format: "csv") %>
 
-<div class = "spacer"></div>
+  <div class = "spacer"></div>
 
-<h3>Total Number of Pageviews by State</h3>
+  <h3 class="text-center">Total Pageviews and Unique Visits</h3>
 
-<div id="container"></div>
+    <p class="text-center">Pageviews: <%= @pageviews %></p>
+    <p class="text-center">Unique Pageviews: <%= @unique_visits_count %></p>
+
+  <div class = "spacer"></div>
+
+  <div id="container"></div>
 
   <%= content_for :extra_footer do %>
     <script src="http://code.highcharts.com/maps/highmaps.js"></script>
@@ -27,3 +29,4 @@
     </script>
 
   <% end %>
+</div>
