@@ -42,7 +42,8 @@ feature "User sees analytics" do
     click_on "Download data"
 
     csv = CSV.parse(page.text)
-    csv.first.should == ["Pageviews", "UniqueVisits", "x"]
+
+    csv.first.should == ["Pageviews", "UniqueVisits", "x 0", "0", Date.today.strftime("%Y-%m-%d")]
   end
 
   scenario "Visitor tries to view an album's analytics" do
