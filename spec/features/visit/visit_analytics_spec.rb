@@ -29,7 +29,7 @@ feature "User sees analytics" do
     click_on "View Album Analytics"
 
     expect(page).to have_content "Pageviews: 2"
-    expect(page).to have_content "Total Unique Pageviews: 1"
+    expect(page).to have_content "Unique Pageviews: 1"
   end
 
   scenario "User downloads csv of pageview data" do

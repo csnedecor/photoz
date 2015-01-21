@@ -13,4 +13,14 @@ describe Visit do
     it { should belong_to :album }
   end
 
+  describe ".daily_visits_to_csv" do
+      album = FactoryGirl.create(:album)
+
+      subject { Visit.daily_visits_to_csv(album) }
+
+      it { should include "Pageviews" }
+      it { should include "UniqueVisits" }
+      it { should include "x" }
+  end
+
 end
