@@ -30,17 +30,23 @@
 </div>
 
 
-<div class="text-center panel photo">
+<div class="row2 panel photo">
   <h1><%= @album.name %></h1>
-  <% if @album.user == current_user %>
-    <%= link_to "Edit album", edit_album_path %>
-    <%= link_to "Delete Album", album_path(@album), method: :delete %>
-    <%= link_to "View Album Analytics", album_analytics_path(@album) %>
-  <% end %>
-  <p>
+  <blockquote>
     <%= @album.description %>
-  </p>
-  <div id = "user">
-    <%= link_to(@album.user.username, user_path(@album.user)) %>
-  </div>
+    <div id="user">
+      ~ <%= link_to(@album.user.username, user_path(@album.user)) %>
+    </div>
+  </blockquote>
 </div>
+<% if @album.user == current_user %>
+  <div class="row2 panel photo">
+    <div class="table">
+    <ul class="inline-list">
+      <li class="button"><%= link_to "Edit album", edit_album_path %></li>
+      <li class="button"><%= link_to "View Album Analytics", album_analytics_path(@album) %></li>
+      <li class="button delete"><%= link_to "Delete Album", album_path(@album), method: :delete %></li>
+    </ul>
+  </div>
+  </div>
+<% end %>

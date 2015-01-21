@@ -4,6 +4,9 @@ var chart = c3.generate({
     x: "x",
     url: "visits.csv"
   },
+  color: {
+    pattern: ['#3B9FDD', '#FFCC66' ]
+  },
   axis: {
     x: {
       type: "timeseries",
