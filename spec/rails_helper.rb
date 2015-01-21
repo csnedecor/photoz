@@ -53,11 +53,9 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  RSpec.configure do |config|
-    config.after(:each) do
-      if Rails.env.test?
-        FileUtils.rm_rf(Dir["#{Rails.root}/public/storage/test/attachments/*"])
-      end
+  config.after(:each) do
+    if Rails.env.test?
+      FileUtils.rm_rf(Dir["#{Rails.root}/public/storage/test/attachments/*"])
     end
   end
 end
