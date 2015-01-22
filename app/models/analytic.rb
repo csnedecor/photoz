@@ -19,5 +19,4 @@ class Analytic < ActiveRecord::Base
     end
     map_data
   end
-
 end
