@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   resources :photos, only: [:show, :edit, :update]
 
-  root 'albums#index'
+  root "albums#index"
 end
