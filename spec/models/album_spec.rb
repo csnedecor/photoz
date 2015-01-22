@@ -28,8 +28,8 @@ describe Album do
     it { should_not have_valid(:name).when(*blanks) }
 
     it "must have at least one photo" do
-      album = Album.new
-      album.save
+      album = Album.create
+
       expect(album.errors[:photos]).to include(
         "You must attach at least one photo"
         )
