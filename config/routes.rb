@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :albums do
-    resources :photos, only: [:show, :edit, :update]
     resources :analytics, only: [:index]
     resources :visits, only: [:index]
   end
+
+  resources :photos, only: [:show, :edit, :update]
 
   root 'albums#index'
 end

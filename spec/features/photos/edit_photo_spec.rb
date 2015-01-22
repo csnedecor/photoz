@@ -23,7 +23,7 @@ feature "Edit a photo" do
     end
 
     scenario "User successfully crops a photo" do
-      visit album_photo_path(@album, @photo)
+      visit photo_path(@photo)
 
       click_on "Edit Photo"
 
@@ -41,7 +41,7 @@ feature "Edit a photo" do
 
     scenario "User can't edit another user's photo" do
       other_album = create(:album)
-      visit album_photo_path(other_album, other_album.photos.first)
+      visit photo_path(other_album.photos.first)
 
       expect(page).not_to have_content "Edit Photo"
     end
@@ -52,11 +52,11 @@ feature "Edit a photo" do
       album = create(:album)
       photo = album.photos.first
 
-      visit album_photo_path(album, photo)
+      visit photo_path(photo)
 
       expect(page).not_to have_content "Edit photo"
 
-      visit edit_album_photo_path(album, photo)
+      visit edit_photo_path(photo)
 
       expect(page).to have_content "You must be signed in to do that"
     end
