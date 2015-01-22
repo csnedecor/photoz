@@ -4,11 +4,11 @@
 
     <ul>
       <% if @album.errors.any? %>
-      <% @album.errors.full_messages.each do |msg| %>
-      <li>
-        <%= msg %>
-      </li>
-      <% end %>
+        <% @album.errors.full_messages.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+        <% end %>
       <% end %>
     </ul>
 

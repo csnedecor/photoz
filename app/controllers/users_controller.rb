@@ -4,5 +4,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @albums = Album.where(user: @user)
   end
-
 end
