@@ -37,6 +37,7 @@
             <li>
               <%= link_to "New Album", new_album_path %>
             </li>
+
             <% if !user_signed_in? %>
               <li class="divider"></li>
               <li>
@@ -56,6 +57,7 @@
                 <%= link_to current_user.username, user_path(current_user) %>
               </li>
             <% end %>
+
           </ul>
 
         </section>
@@ -73,14 +75,13 @@
       <% if !current_page?(root_path) %>
         <footer>
           <div class="large-12 columns"><hr/>
-
             <div class="large-6 columns">
               <p>© 2014 Photoz</p>
             </div>
-
           </div>
         </footer>
       <% end %>
+      
     </div>
   </div>
   <%= javascript_include_tag "application" %>

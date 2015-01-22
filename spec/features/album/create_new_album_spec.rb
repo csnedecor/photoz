@@ -102,7 +102,7 @@ feature "Create a new album" do
       fill_in "Description", with: "These are pictures of my family on vacation!"
       attach_file(
         "album_photos_attributes_0_photo",
-        Rails.root + "spec/fixtures/Amnesia-cover.mp3"
+        Rails.root + "spec/fixtures/bird.wav"
         )
       click_on "Save Album"
       expect(page).to have_content "must be an image (only png, gif or jpg files)"

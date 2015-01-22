@@ -28,14 +28,6 @@ feature "User deletes album" do
 
       expect(page).to have_content "Successfully deleted #{album.name}"
       expect(page).to have_content "Profile"
-
-      album = FactoryGirl.create(:album, user: @existing_user)
-
-      visit user_path(@existing_user)
-      click_on "Delete Album"
-
-      expect(page).to have_content "Successfully deleted #{album.name}"
-      expect(page).to have_content "Profile"
     end
 
     scenario "User tries to delete another user's album" do

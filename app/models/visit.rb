@@ -26,7 +26,7 @@ class Visit < ActiveRecord::Base
             date.end_of_day
           ]
         ).count
-        csv << [daily_hit_count, daily_visit_count, "#{date}"]
+        csv << [daily_hit_count, daily_visit_count, date.to_s]
       end
     end
   end

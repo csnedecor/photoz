@@ -1,9 +1,11 @@
 <div class="black-background">
+
   <div class="row">
     <h2 class="text-center white">Edit Your Photo</h1>
     <%= image_tag(@photo.photo.url, class: "center", id: "edit-photo") %>
   </div>
-  <%= form_for([@album, @photo]) do |f| %>
+
+  <%= form_for(@photo) do |f| %>
     <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
       <%= f.hidden_field attribute, id: attribute %>
     <% end %>
@@ -14,11 +16,11 @@
 </div>
 
 <div class="text-center panel photo">
-  <h1><%= link_to @album.name, album_path(@album) %></h1>
+  <h1><%= link_to @photo.album.name, album_path(@photo.album) %></h1>
   <p>
-    <%= @album.description %>
+    <%= @photo.album.description %>
   </p>
   <div id = "user">
-    <%= @album.user.username %>
+    <%= @photo.album.user.username %>
   </div>
 </div>

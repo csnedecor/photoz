@@ -43,13 +43,13 @@ feature "User sees analytics" do
 
     csv = CSV.parse(page.text)
 
-    csv.first.should == [
+    expect(csv.first).to eq([
       "Pageviews",
       "UniqueVisits",
       "x 0",
       "0",
       Date.today.strftime("%Y-%m-%d")
-    ]
+    ])
   end
 
   scenario "Visitor tries to view an album's analytics" do
