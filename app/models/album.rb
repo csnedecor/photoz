@@ -12,4 +12,8 @@ class Album < ActiveRecord::Base
     presence: true,
     uniqueness: true
   validates :description, presence:true
+
+  def total_hits_for_state(state)
+    hits.where(region_code: state).count
+  end
 end

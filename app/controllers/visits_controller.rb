@@ -4,7 +4,7 @@ class VisitsController < ApplicationController
     respond_to do |format|
       format.csv do
         render csv: Visit.daily_visits_to_csv(@album),
-        filename: "visits.csv"
+          filename: "visits.csv"
       end
     end
   end

@@ -6,7 +6,7 @@
 
 <div class="large-12 column home">
   <div id="masonryContainer">
-    <% @albums.each do |album| %>
+    <% @user.albums.each do |album| %>
       <% if @user == current_user %>
         <div class="masonry-brick">
           <%= link_to "Edit album", edit_album_path(album) %>

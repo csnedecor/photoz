@@ -5,7 +5,6 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
 
-
   def edit
     @photo = current_user.photos.find(params[:id])
   end
@@ -15,6 +14,7 @@ class PhotosController < ApplicationController
 
     if photo.update(photo_params)
       photo.reprocess_photo
+
       flash[:notice] = "Successfully cropped photo"
       redirect_to photo_path(photo)
     end
