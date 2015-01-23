@@ -1,10 +1,16 @@
+<h1>Photoz</h1>
+
 Upload photo albums, crop your photos, & see analytics for who has viewed your albums.
 
-Screenshots:
+<h3>Screenshots:</h3>
+
+Homepage:
 ![Homepage](app/assets/images/homepage-screenshot.png?raw=true)
+Image Cropper:
 ![Image Cropper](app/assets/images/image-cropper-screenshot.png?raw=true)
-![Location Analytics](app/assets/images/locations-screenshot.png?raw=true)
+Analytics:
 ![Pageviews Analytics](app/assets/images/pageviews-screenshot.png?raw=true)
+![Location Analytics](app/assets/images/locations-screenshot.png?raw=true)
 
 Try it out at http://photozz.herokuapp.com
 
@@ -19,7 +25,7 @@ rake db:migrate
 
 This application uses the Paperclip gem for photo attachments. If your computer doesn't already have it, you will need to install ImageMagick to run the application locally.  More information here: https://github.com/thoughtbot/paperclip
 
-About the creation of this app:
+<h3>About the creation of this app:</h3>
 
 ER Diagram:
 ![ER Diagram](app/assets/images/er-diagram.jpg?raw=true)
