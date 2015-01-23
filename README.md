@@ -4,15 +4,18 @@ Upload photo albums, crop your photos, & see analytics for who has viewed your a
 
 <h3>Screenshots:</h3>
 
-Homepage:
+<h4>Homepage:</h4>
+
 ![Homepage](app/assets/images/homepage-screenshot.png?raw=true)
-Image Cropper:
+<h4>Image Cropper:</h4>
+
 ![Image Cropper](app/assets/images/image-cropper-screenshot.png?raw=true)
-Analytics:
+<h4>Analytics:</h4>
+
 ![Pageviews Analytics](app/assets/images/pageviews-screenshot.png?raw=true)
 ![Location Analytics](app/assets/images/locations-screenshot.png?raw=true)
 
-Try it out at http://photozz.herokuapp.com
+<strong>Try it out at http://photozz.herokuapp.com</strong>
 
 For the most up to date version of Photozz, you can also clone the repo down and try it out on your own machine:
 
