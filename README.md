@@ -20,7 +20,7 @@ Upload photo albums, crop your photos, & see analytics for who has viewed your a
 For the most up to date version of Photozz, you can also clone the repo down and try it out on your own machine:
 
 ```
-git clone https://github.com/csnedecor/photoz.git
+git clone git@github.com:csnedecor/photoz.git
 bundle install
 rake db:create
 rake db:migrate
