@@ -52,3 +52,18 @@
   </div>
   </div>
 <% end %>
+
+<%= form_for ([@album, @comment]) do |f| %>
+  <%= f.text_field :body, placeholder: "Leave a comment" %>
+
+  <%= f.submit "Submit" %>
+<% end %>
+
+  <h2>Comments</h2>
+  <% @comments.each do |comment| %>
+    <div class="comment">
+      <%= comment.user.username %>
+      <%= comment.created_at.strftime("%b %d %Y %H:%M") %>
+      <%= comment.body %>
+    </div>
+  <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119192010) do
+ActiveRecord::Schema.define(version: 20150127213115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20150119192010) do
   end
 
   add_index "albums", ["name"], name: "index_albums_on_name", unique: true, using: :btree
+
+  create_table "comments", force: true do |t|
+    t.text     "body",       null: false
+    t.integer  "user_id",    null: false
+    t.integer  "album_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["album_id"], name: "index_comments_on_album_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "hits", force: true do |t|
     t.integer  "album_id",    null: false
