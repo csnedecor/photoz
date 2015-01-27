@@ -13,7 +13,7 @@ feature "View albums" do
     # * [X] If I navigate to the home page, I should see a list of all albums with the
     # username, a cover photo, and the album's title.
 
-    album = FactoryGirl.create(:album)
+    album = create(:album)
 
     visit root_path
 

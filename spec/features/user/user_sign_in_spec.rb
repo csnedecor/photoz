@@ -16,7 +16,7 @@ feature 'User signs in' do
   # * [X] I can sign in using GitHub
 
   scenario 'User enters all information correctly' do
-    existing_user = FactoryGirl.create(:user)
+    existing_user = create(:user)
 
     visit root_path
     click_on "Sign In"

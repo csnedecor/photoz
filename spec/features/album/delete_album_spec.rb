@@ -16,12 +16,12 @@ feature "User deletes album" do
   context "User is logged in" do
 
     before(:each) do
-      @existing_user = FactoryGirl.create(:user)
+      @existing_user = create(:user)
       sign_in(@existing_user)
     end
 
     scenario "User successfully deletes an album" do
-      album = FactoryGirl.create(:album, user: @existing_user)
+      album = create(:album, user: @existing_user)
 
       visit album_path(album)
       click_on "Delete Album"
@@ -31,7 +31,7 @@ feature "User deletes album" do
     end
 
     scenario "User tries to delete another user's album" do
-      album = FactoryGirl.create(:album)
+      album = create(:album)
 
       visit album_path(album)
 
@@ -45,7 +45,7 @@ feature "User deletes album" do
 
   context "Visitor is not logged in" do
     scenario "Visitor tries to delete an album" do
-      album = FactoryGirl.create(:album)
+      album = create(:album)
 
       visit album_path(album)
 

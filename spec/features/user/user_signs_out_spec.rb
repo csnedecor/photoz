@@ -11,7 +11,7 @@ feature 'user sign out' do
   context "User is signed in" do
 
     before(:each) do
-      @existing_user = FactoryGirl.create(:user)
+      @existing_user = create(:user)
       sign_in(@existing_user)
     end
 
