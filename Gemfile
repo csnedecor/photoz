@@ -44,6 +44,7 @@ group :test do
   gem 'coveralls', require: false
   gem "valid_attribute"
   gem "shoulda-matchers"
+  gem "timecop"
 end
 
 group :development, :test do
