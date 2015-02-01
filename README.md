@@ -1,5 +1,6 @@
 <h1>Photoz</h1>
-
+[![Coverage Status](https://coveralls.io/repos/csnedecor/photoz/badge.svg?branch=master)](https://coveralls.io/r/csnedecor/photoz?branch=master)
+[![Build Status](https://travis-ci.org/csnedecor/photoz.svg?branch=master)](https://travis-ci.org/csnedecor/photoz)
 Upload photo albums, crop your photos, & see analytics for who has viewed your albums.
 
 <h3>Screenshots:</h3>
