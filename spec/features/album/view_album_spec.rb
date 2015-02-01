@@ -11,7 +11,7 @@ feature "view album page" do
   # description, the album name, and a list of the photos in the album
 
   scenario "visitor goes to album detail page" do
-    album = FactoryGirl.create(:album)
+    album = create(:album)
 
     visit root_path
     click_on album.name

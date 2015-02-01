@@ -50,7 +50,7 @@ feature "User signs up" do
   end
 
   scenario "email and username are already taken" do
-    existing_user = FactoryGirl.create(:user)
+    existing_user = create(:user)
 
     visit root_path
     click_on "Sign Up"

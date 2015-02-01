@@ -33,7 +33,7 @@ feature "Create a new album" do
   context "User is signed in" do
 
     before(:each) do
-      @existing_user = FactoryGirl.create(:user)
+      @existing_user = create(:user)
       sign_in(@existing_user)
     end
 
@@ -80,7 +80,7 @@ feature "Create a new album" do
     end
 
     scenario "User enters an album name that is already in use" do
-      album = FactoryGirl.create(:album)
+      album = create(:album)
 
       visit root_path
       click_on "New Album"

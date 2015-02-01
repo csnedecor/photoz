@@ -16,8 +16,8 @@ feature "Edit a photo" do
 
   context "User is signed in and has an album" do
     before(:each) do
-      @existing_user = FactoryGirl.create(:user)
-      @album = FactoryGirl.create(:album, user: @existing_user)
+      @existing_user = create(:user)
+      @album = create(:album, user: @existing_user)
       @photo = @album.photos.first
       sign_in(@existing_user)
     end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :albums do
     resources :analytics, only: [:index]
     resources :visits, only: [:index]
+    resources :comments, only: [:create]
   end
 
   resources :photos, only: [:show, :edit, :update]

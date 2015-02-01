@@ -25,8 +25,8 @@ feature "Edit album" do
 
   context "User is logged in and has created an album" do
     before(:each) do
-      @existing_user = FactoryGirl.create(:user)
-      @existing_album = FactoryGirl.create(:album, user: @existing_user)
+      @existing_user = create(:user)
+      @existing_album = create(:album, user: @existing_user)
 
       sign_in(@existing_user)
     end
@@ -78,7 +78,7 @@ feature "Edit album" do
     end
 
     scenario "User enters a name that has already been taken" do
-      other_existing_album = FactoryGirl.create(:album, user: @existing_user)
+      other_existing_album = create(:album, user: @existing_user)
       visit edit_album_path(@existing_album)
 
       fill_in "Name", with: other_existing_album.name
@@ -97,7 +97,7 @@ feature "Edit album" do
     end
 
     scenario "User edits album from their profile page" do
-      other_album = FactoryGirl.create(:album)
+      other_album = create(:album)
 
       visit user_path(@existing_user)
 
@@ -112,7 +112,7 @@ feature "Edit album" do
 
   context "Visitor is not signed in" do
     scenario "Visitor tries to edit an album" do
-      album = FactoryGirl.create(:album)
+      album = create(:album)
 
       visit album_path(album)
 

@@ -27,7 +27,8 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
     @photos = @album.photos.order(id: :asc)
-
+    @comment = Comment.new
+    @comments = @album.comments
     Hit.create(
       album: @album,
       ip_address: request.ip,
