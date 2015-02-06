@@ -48,7 +48,7 @@ feature "create a new comment" do
       @album = create(:album)
     end
 
-    scenario "Visitor can't leave a comment", focus: true do
+    scenario "Visitor can't leave a comment" do
       visit album_path(@album)
 
       expect(page).not_to have_field "comment[body]"

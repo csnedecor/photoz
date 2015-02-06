@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     @album = Album.find(params[:album_id])
     comment = current_user.comments.build(comments_params)
