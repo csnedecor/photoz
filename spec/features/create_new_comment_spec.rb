@@ -11,8 +11,8 @@ feature "create a new comment" do
   # [] The creator gets an email when I comment on their album
   # [] I can reply to others' comments
   # [] I receive an email when someone replies to my comment
-  # [X] When I leave a comment, it gives me a success message and keeps me on the
-  #    album page
+  # [X] When I leave a comment, it gives me a success message and keeps me on
+  #     the album page
   # [X] Comments show the time and date they were submitted, the comment body,
   #    and the username of the person who wrote it.
 
