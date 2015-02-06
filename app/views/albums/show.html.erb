@@ -53,10 +53,14 @@
   </div>
 <% end %>
 
-<%= form_for ([@album, @comment]) do |f| %>
-  <%= f.text_field :body, placeholder: "Leave a comment" %>
+<% if signed_in? %>
+  <%= form_for ([@album, @comment]) do |f| %>
+    <%= f.text_field :body, placeholder: "Leave a comment" %>
 
-  <%= f.submit "Submit" %>
+    <%= f.submit "Submit" %>
+  <% end %>
+<% else %>
+  Sign in to leave a comment!
 <% end %>
 
   <h2>Comments</h2>
